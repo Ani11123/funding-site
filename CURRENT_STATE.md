@@ -1,7 +1,7 @@
 # CURRENT STATE
 
 Status:
-Phase 1 — Asset Integration Complete (lender logos, hero photo, conditional logo, build verified)
+Phase 1 — Production Branding Integrated (Nexora logo + favicons live, build verified 2026-06-30)
 
 ## Official Brand Palette (Nexora Funding Limited)
 
@@ -36,13 +36,19 @@ Fonts:
 ## Logo Implementation
 
 LogoMark component (`src/components/LogoMark.tsx`):
-- Tries to load /assets/logo/logo.png (light) or /assets/logo/logo-white.png (dark)
-- On error (file not found) → falls back to styled brand text "NEXORA / FUNDING LIMITED"
+- Primary: /assets/logo/nexora-logo.svg (production branding, from nexora-logo/ folder)
+- Light mode (Header): full-colour SVG
+- Dark mode (Footer): same SVG with CSS filter `brightness(0) invert(1)` → all-white
+- Fallback: styled brand text "NEXORA / FUNDING LIMITED" (fires on image error)
 - Used in: Header (light mode), Footer (dark mode)
-- No code changes required when real logo is added — drop PNG into public/assets/logo/
 
-Generated SVG logos REMOVED from public/assets/logo/ (per client instruction)
-Favicon removed from metadata (per client instruction — browser default used until real favicon provided)
+Favicon metadata in layout.tsx (via Next.js Metadata + Viewport API):
+- favicon.ico, favicon-16/32/48x16.png, apple-touch-icon.png, site.webmanifest
+- themeColor: #04244A
+
+All branding assets live in:
+  public/assets/logo/  — logo SVG + PNG variants + icon mark
+  public/             — favicon ICO, PNG sizes, apple touch icon, android chrome, webmanifest
 
 ## Lender Logos (Integrated)
 

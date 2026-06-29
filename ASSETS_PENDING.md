@@ -5,22 +5,34 @@ Search the codebase for "// TODO" to locate every placeholder in the code.
 
 ---
 
-## BRANDING — LOGO
+## BRANDING — LOGO ✓ INTEGRATED (2026-06-30)
 
-- [ ] Real logo PNG — light version → drop in: public/assets/logo/logo.png
-- [ ] Real logo PNG — dark/white version → drop in: public/assets/logo/logo-white.png
+All production branding assets have been integrated from the nexora-logo/ folder.
 
-  ↳ No code changes required. LogoMark component auto-displays logo once PNG files exist.
-  ↳ Header uses logo.png (light), Footer uses logo-white.png (dark).
+Files in public/assets/logo/:
+  nexora-logo.svg         ← PRIMARY logo (used in Header + Footer)
+  nexora-logo-300w.png    ← fallback PNG (300px wide)
+  nexora-logo-600w.png    ← fallback PNG (600px wide)
+  nexora-logo-1200w.png   ← fallback PNG (1200px wide)
+  nexora-icon.svg         ← standalone brand mark (available for use)
 
-- [ ] Favicon — generate from real logo once PNG is available
-  ↳ Currently: browser default favicon (no custom favicon set — per client instruction)
-  ↳ When logo.png is ready, export 32×32 ICO and add to public/ and layout.tsx
+Favicons in public/:
+  favicon.ico, favicon-16x16.png, favicon-32x32.png, favicon-48x48.png
+  apple-touch-icon.png, android-chrome-192x192.png, android-chrome-512x512.png
+  site.webmanifest
 
-- [ ] Apple touch icon PNG (180×180 from real logo)
-- [ ] logo.png for OG image / social sharing meta tags
+LogoMark.tsx:
+  - Header (light): nexora-logo.svg at full colour
+  - Footer (dark): nexora-logo.svg with CSS filter brightness(0) invert(1) → all-white
+  - Fallback: styled text "NEXORA / FUNDING LIMITED" on image load error
 
-Generated SVG logos REMOVED from public/assets/logo/ — directory is now empty.
+layout.tsx:
+  - Favicon icons array (ICO + 3 PNG sizes)
+  - Apple touch icon
+  - site.webmanifest linked
+  - themeColor: #04244A via Viewport export
+
+- [ ] OG image — add nexora-logo.svg or branded image to openGraph.images in layout.tsx once confirmed
 
 ---
 
