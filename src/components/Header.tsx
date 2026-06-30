@@ -25,11 +25,11 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[68px] sm:h-[76px] lg:h-[96px]">
+        <div className="flex items-center justify-between h-[80px] sm:h-[88px] lg:h-[100px]">
 
-          {/* Logo */}
+          {/* Logo — nexora-header-logo.svg (brand mark + wordmark, tagline excluded for header clarity) */}
           <a href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
-            <LogoMark mode="light" className="h-[44px] sm:h-[52px] lg:h-[72px]" />
+            <LogoMark mode="light" className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto" />
           </a>
 
           {/* Desktop nav */}
