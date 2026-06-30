@@ -27,25 +27,21 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[80px] sm:h-[88px] lg:h-[100px]">
 
-          {/* Logo — nudged up 3px to compensate for unequal SVG transparent padding (121 units top, 40 bottom) */}
-          <a
-            href="/"
-            className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200"
-            style={{ transform: "translateY(-3px)" }}
-          >
+          {/* Logo — viewBox cropped to y=121–1318, fills image bounds with no transparent padding */}
+          <a href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
             <LogoMark mode="light" className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto" />
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-slate-600 hover:text-[#0B2E59] group transition-colors duration-150"
+                className="relative px-5 py-2 text-[15px] font-semibold text-slate-700 hover:text-[#0B2E59] group transition-colors duration-150"
               >
                 {link.label}
-                <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-[#C76A1B] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                <span className="absolute bottom-1 left-5 right-5 h-[2px] bg-[#C76A1B] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
               </a>
             ))}
           </nav>
@@ -54,7 +50,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-semibold text-sm px-5 py-2.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+              className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-semibold text-[15px] px-6 py-2.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
             >
               Speak to Advisor
             </a>
@@ -97,7 +93,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-3.5 text-sm font-medium text-slate-700 hover:text-[#0B2E59] hover:bg-slate-50 rounded transition-colors border-b border-slate-100 last:border-0"
+                className="block px-3 py-3.5 text-[15px] font-semibold text-slate-700 hover:text-[#0B2E59] hover:bg-slate-50 rounded transition-colors border-b border-slate-100 last:border-0"
               >
                 {link.label}
               </a>
