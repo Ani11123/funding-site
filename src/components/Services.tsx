@@ -80,7 +80,7 @@ export default function Services() {
     <section
       id="services"
       className="py-20 lg:py-28 bg-[#F4F5F7]"
-      style={{ scrollMarginTop: "116px" }}
+      style={{ scrollMarginTop: "124px" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

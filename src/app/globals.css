@@ -94,18 +94,18 @@ h1, h2, h3, h4 {
 
 /* ── Scroll margin offset for sticky header ── */
 section[id] {
-  scroll-margin-top: 88px; /* mobile: 80px header + 8px buffer */
+  scroll-margin-top: 92px; /* mobile: 84px header + 8px buffer */
 }
 
 @media (min-width: 640px) {
   section[id] {
-    scroll-margin-top: 96px; /* tablet: 88px header + 8px buffer */
+    scroll-margin-top: 104px; /* tablet: 96px header + 8px buffer */
   }
 }
 
 @media (min-width: 1024px) {
   section[id] {
-    scroll-margin-top: 108px; /* desktop: 100px header + 8px buffer */
+    scroll-margin-top: 116px; /* desktop: 108px header + 8px buffer */
   }
 }
 
