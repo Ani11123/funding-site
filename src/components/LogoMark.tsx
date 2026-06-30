@@ -12,13 +12,9 @@ interface LogoMarkProps {
 export default function LogoMark({ mode = "light", className = "" }: LogoMarkProps) {
   const [failed, setFailed] = useState(false);
 
-  // Header uses the cropped variant (excludes the tiny unreadable tagline at the
-  // bottom of the full SVG). Footer uses the full logo — at small dark-mode sizes
-  // the tagline area is imperceptible and the full brand sheet is intact.
-  const src =
-    mode === "dark"
-      ? "/assets/logo/nexora-logo.svg"
-      : "/assets/logo/nexora-header-logo.svg";
+  // Single clean logo variant — nexora-header-logo.svg used everywhere.
+  // Dark mode applies brightness(0) invert(1) for white rendering on dark backgrounds.
+  const src = "/assets/logo/nexora-header-logo.svg";
 
   if (!failed) {
     return (

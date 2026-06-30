@@ -27,8 +27,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[80px] sm:h-[88px] lg:h-[100px]">
 
-          {/* Logo — nexora-header-logo.svg (brand mark + wordmark, tagline excluded for header clarity) */}
-          <a href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
+          {/* Logo — nudged up 3px to compensate for unequal SVG transparent padding (121 units top, 40 bottom) */}
+          <a
+            href="/"
+            className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200"
+            style={{ transform: "translateY(-3px)" }}
+          >
             <LogoMark mode="light" className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto" />
           </a>
 

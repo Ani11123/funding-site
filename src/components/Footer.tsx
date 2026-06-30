@@ -26,9 +26,8 @@ export default function Footer() {
 
           {/* Col 1 — Brand + company summary */}
           <div className="sm:col-span-2 lg:col-span-1">
-            {/* Logo — auto-upgrades to real logo when logo-white.png is placed in public/assets/logo/ */}
-            <div className="mb-4">
-              <LogoMark mode="dark" className="h-10 w-auto" />
+            <div className="mb-6">
+              <LogoMark mode="dark" className="w-[155px] sm:w-[175px] lg:w-[200px] h-auto" />
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
