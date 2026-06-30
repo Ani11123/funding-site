@@ -1,7 +1,7 @@
 # CURRENT STATE
 
 Status:
-Phase 1 — Production Branding Integrated (Nexora logo + favicons live, build verified 2026-06-30)
+Phase 1 — Production Branding Complete (logo at correct premium size, favicon active, build verified 2026-06-30)
 
 ## Official Brand Palette (Nexora Funding Limited)
 
@@ -40,15 +40,39 @@ LogoMark component (`src/components/LogoMark.tsx`):
 - Light mode (Header): full-colour SVG
 - Dark mode (Footer): same SVG with CSS filter `brightness(0) invert(1)` → all-white
 - Fallback: styled brand text "NEXORA / FUNDING LIMITED" (fires on image error)
+- No hardcoded height — caller passes responsive className for full control
 - Used in: Header (light mode), Footer (dark mode)
 
-Favicon metadata in layout.tsx (via Next.js Metadata + Viewport API):
-- favicon.ico, favicon-16/32/48x16.png, apple-touch-icon.png, site.webmanifest
-- themeColor: #04244A
+Header logo sizes (height drives width at 1.546:1 SVG ratio):
+- Mobile:  h-[44px] → ~68px wide  (in h-[68px] header)
+- Tablet:  h-[52px] → ~80px wide  (in h-[76px] header)
+- Desktop: h-[72px] → ~111px wide (in h-[96px] header)
+
+Header heights:
+- Mobile default: h-[68px]
+- Tablet (sm):    h-[76px]
+- Desktop (lg):   h-[96px]
+
+Scroll margin (section[id]):
+- Mobile:  76px  (68px header + 8px buffer)
+- Tablet:  84px  (76px header + 8px buffer)
+- Desktop: 104px (96px header + 8px buffer)
+  (Services section overrides to 112px for extra breathing room)
+
+Favicon implementation (dual approach for maximum reliability):
+- src/app/favicon.ico — Next.js App Router special file convention (primary)
+- layout.tsx metadata icons — PNG size variants (16/32/48px) + apple-touch-icon
+- layout.tsx manifest — /site.webmanifest
+- layout.tsx themeColor — #04244A (via Viewport export)
+
+Note on logo aspect ratio: nexora-logo.svg has a 1.546:1 ratio (stacked icon + wordmark).
+At any height H, width = H × 1.546. At 111px wide (desktop), the logo appears as a strong
+brand anchor appropriate for a premium finance site.
 
 All branding assets live in:
+  src/app/favicon.ico  — primary favicon (App Router convention)
   public/assets/logo/  — logo SVG + PNG variants + icon mark
-  public/             — favicon ICO, PNG sizes, apple touch icon, android chrome, webmanifest
+  public/              — favicon ICO+PNGs, apple touch icon, android chrome, webmanifest
 
 ## Lender Logos (Integrated)
 

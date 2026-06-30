@@ -25,11 +25,11 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-[72px]">
+        <div className="flex items-center justify-between h-[68px] sm:h-[76px] lg:h-[96px]">
 
-          {/* Logo — acts as home button. Auto-upgrades to real logo when logo.png is placed in public/assets/logo/ */}
+          {/* Logo */}
           <a href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
-            <LogoMark mode="light" />
+            <LogoMark mode="light" className="h-[44px] sm:h-[52px] lg:h-[72px]" />
           </a>
 
           {/* Desktop nav */}

@@ -18,13 +18,8 @@ export default function LogoMark({ mode = "light", className = "" }: LogoMarkPro
       <img
         src="/assets/logo/nexora-logo.svg"
         alt="Nexora Funding Limited"
-        height={40}
-        className={`h-10 w-auto ${className}`}
-        style={
-          mode === "dark"
-            ? { filter: "brightness(0) invert(1)", maxWidth: 200 }
-            : { maxWidth: 200 }
-        }
+        className={`w-auto ${className}`}
+        style={mode === "dark" ? { filter: "brightness(0) invert(1)" } : undefined}
         onError={() => setFailed(true)}
       />
     );

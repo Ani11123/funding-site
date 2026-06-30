@@ -94,7 +94,19 @@ h1, h2, h3, h4 {
 
 /* ── Scroll margin offset for sticky header ── */
 section[id] {
-  scroll-margin-top: 86px;
+  scroll-margin-top: 76px; /* mobile: 68px header + 8px buffer */
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 84px; /* tablet: 76px header + 8px buffer */
+  }
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 104px; /* desktop: 96px header + 8px buffer */
+  }
 }
 
 /* ── Card hover lift ── */
