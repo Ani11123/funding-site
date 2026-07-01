@@ -80,11 +80,27 @@
 [x] npm run build — zero TypeScript errors
 [x] Update CURRENT_STATE.md, TASKS.md, ASSETS_PENDING.md
 
+## PHASE 1 FINAL REFINEMENT — COMPLETE (2026-07-01)
+
+[x] Hero tagline confirmed: "Connecting UK businesses with trusted commercial finance solutions."
+[x] ContactForm geo element — upgraded to premium UK map placeholder card with grid lines, location rings, orange pin dot, TODO comments for Google Maps embed + office address
+[x] SEO Phase 1 — layout.tsx title/description/OG/twitter/canonical updated; robots.txt + sitemap.xml created
+[x] Footer GDPR/ICO badges — increased from h-7 w-14 to h-9 w-[70px]; added "GDPR Compliant" / "ICO Registered" text labels; opacity tweaked to 0.55/0.80
+[x] Logo verified — nexora-header-logo.svg with viewBox "0 121 2534 1353" (icon + NEXORA + FUNDING LIMITED, no tagline)
+[x] Favicon refined — 3-layer floating design: white bg (rx=80) + hairline border (#E5E7EB) + icon at 90% scale centred on (512,512)
+[x] Responsive QA — code review of all breakpoints; all sections use correct responsive padding/grid patterns
+[x] Performance — Hero priority flag ✓; all images have sizes attributes ✓; TrustedPartners logos sizes="112px" ✓
+[x] next.config.ts — output: "export" + unoptimized: true for Hostinger static hosting
+[x] Documentation — CURRENT_STATE.md updated; ASSETS_RECEIVED.md created; SEO_PHASE1.md created; TASKS.md updated
+[x] npm run build — clean build, zero errors
+
 ## PENDING
 
-[ ] Device QA — mobile + tablet testing
-[ ] Client asset handoff — testimonials, blog articles, social URLs, Trustpilot URL
-[ ] Vercel deployment
+[ ] Upload out/ to Hostinger public_html
+[ ] Configure custom domain in Hostinger
+[ ] Submit sitemap to Google Search Console
+[ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, phone number, office address, OG image, testimonials, policy pages
+[ ] Visual QA on real devices (mobile/tablet) after Hostinger deployment
 
 ## PHASE 2 (FUTURE)
 

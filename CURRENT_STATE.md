@@ -1,154 +1,175 @@
 # CURRENT STATE
 
-Status:
-Phase 1 — Production Branding Complete (logo at correct premium size, favicon active, build verified 2026-06-30)
+Status: Phase 1 Final Refinement — Complete (2026-07-01)
+Build: ✅ Clean (static export, 10 routes)
+Deployment target: Hostinger (static) or Vercel (server)
 
-## Official Brand Palette (Nexora Funding Limited)
+---
+
+## Official Brand Palette
 
 Primary Navy:    #0B2E59
 Dark Navy:       #082347
 Darkest:         #061830
 Secondary:       #4F6D8A
-Light Grey:      #F4F5F7  (background)
+Light Grey:      #F4F5F7  (section backgrounds)
 Charcoal:        #333333  (body text)
-Orange (accent): #C76A1B  (primary buttons, links, CTA highlights, icons)
+Orange (accent): #C76A1B  (buttons, links, CTA, icons)
 Orange hover:    #a85918
 
 Fonts:
-  Headings: Montserrat (600/700/800/900) via Google Fonts CSS import
-  Body:     Inter (300–900) via Google Fonts CSS import
+  Headings: Montserrat (600/700/800/900) via Google Fonts CSS @import
+  Body:     Inter (300–900) via Google Fonts CSS @import
+
+---
 
 ## Page Structure (top to bottom)
 
-1. TopBar — slim #082347 bar: "See our reviews on Trustpilot" | social icons
-2. Header — white sticky: LogoMark (text fallback → auto-upgrades to logo.png) | Funding Options | Contact | "Speak to Advisor" orange CTA
-3. Hero — London financial district photo (Unsplash, royalty-free), dark navy overlay, slow 22s zoom, centred single-column
-4. TrustBar — white floating card (-mt-10 overlap): £10K–£5M, Multiple Options, Quick Response, UK Wide
-5. Services (Funding Options) — 8 cards in 4×2 grid, bg #F4F5F7, hover lift + icon colour change
-6. Process (How It Works) — 4 standalone premium cards, bg white, step number watermark
-7. WhyChooseUs — standalone full-width #0B2E59 section, 6 feature tiles in 3-col grid + pull quote
-8. Testimonials — 3 placeholder cards, bg #F4F5F7 (TODO: real testimonials)
-9. BlogPreview — 3 placeholder article cards, bg white (TODO: real content)
-10. TrustedPartners — continuous CSS marquee, 14 REAL lender logo PNGs, 55s animation, fade edges
-11. ContactForm — dark #0B2E59 section, 2-col: info panel left + white form card right
-12. Footer — dark #082347 bg, 4-col: LogoMark + tagline + contacts | Funding links | Company links | Newsletter link + socials
+1.  TopBar — sticky #082347 bar: Trustpilot reference | 4 social icons (LinkedIn, WhatsApp, Facebook, Instagram)
+2.  Header — sticky white: LogoMark | Business Finance nav → #business-finance | Contact → #contact | Speak to Advisor CTA
+3.  Hero — London financial district (Unsplash), 22s zoom, centred headline + tagline
+4.  TrustBar — floating white card (-mt-10 overlap)
+5.  Services (#business-finance) — editorial header + 8 service cards in 4×2 grid (bg #F4F5F7)
+6.  Process — 4 steps on white bg
+7.  WhyChooseUs (#why-us) — 6 feature tiles, #0B2E59 bg, pull quote
+8.  Testimonials — 3 placeholder cards (TODO: real content)
+9.  BlogPreview — 3 placeholder article cards (TODO: real content)
+10. TrustedPartners — 14 lender logos, 55s CSS marquee
+11. ContactForm (#contact) — info panel + premium UK map placeholder + white form card
+12. Footer — 4-col: brand | Business Finance links | Company links | Newsletter + socials | GDPR/ICO badges
+
+---
+
+## Sticky Header Stack
+
+TopBar: `sticky top-0 z-[60]` h-9 = 36px
+Header: `sticky top-9 z-50` h-[84/96/108px] (mobile/tablet/desktop)
+
+scroll-margin-top (globals.css):
+  Mobile:  128px
+  sm:      140px
+  lg:      152px
+
+Services overrides to scrollMarginTop: 160px (inline style, covers all breakpoints safely).
+
+---
 
 ## Logo Implementation
 
-LogoMark component (`src/components/LogoMark.tsx`):
-- Primary: /assets/logo/nexora-logo.svg (production branding, from nexora-logo/ folder)
-- Light mode (Header): full-colour SVG
-- Dark mode (Footer): same SVG with CSS filter `brightness(0) invert(1)` → all-white
-- Fallback: styled brand text "NEXORA / FUNDING LIMITED" (fires on image error)
-- No hardcoded height — caller passes responsive className for full control
-- Used in: Header (light mode), Footer (dark mode)
+Component: `src/components/LogoMark.tsx`
+- Source: `public/assets/logo/nexora-header-logo.svg`
+- viewBox: `"0 121 2534 1353"` — crops tagline at y=1476+, preserves icon + NEXORA + FUNDING LIMITED
+- Light mode (Header): full-colour SVG via `<img>`
+- Dark mode (Footer): CSS filter `brightness(0) invert(1)` → all-white
+- Fallback: styled brand text block if image fails to load
+- Header sizes: `w-[120px] sm:w-[140px] lg:w-[170px] h-auto`
+- Footer sizes: `w-[155px] sm:w-[175px] lg:w-[200px] h-auto`
 
-Header logo sizes (height drives width at 1.546:1 SVG ratio):
-- Mobile:  h-[44px] → ~68px wide  (in h-[68px] header)
-- Tablet:  h-[52px] → ~80px wide  (in h-[76px] header)
-- Desktop: h-[72px] → ~111px wide (in h-[96px] header)
+---
 
-Header heights:
-- Mobile default: h-[68px]
-- Tablet (sm):    h-[76px]
-- Desktop (lg):   h-[96px]
+## Favicon
 
-Scroll margin (section[id]):
-- Mobile:  76px  (68px header + 8px buffer)
-- Tablet:  84px  (76px header + 8px buffer)
-- Desktop: 104px (96px header + 8px buffer)
-  (Services section overrides to 112px for extra breathing room)
+3-layer SVG approach (`public/favicon.svg`):
+- Layer 1: white rounded-square background (rx=80)
+- Layer 2: hairline border (#E5E7EB, 16px stroke ≈ 0.5px at 32px display)
+- Layer 3: Nexora icon at 90% scale centered on (512,512) via `translate(51.2,51.2) scale(0.90)`
 
-Favicon implementation (dual approach for maximum reliability):
-- src/app/favicon.ico — Next.js App Router special file convention (primary)
-- layout.tsx metadata icons — PNG size variants (16/32/48px) + apple-touch-icon
-- layout.tsx manifest — /site.webmanifest
-- layout.tsx themeColor — #04244A (via Viewport export)
+Icon paths: navy #04244A N-body (2 paths) + orange #E36E04 accent bars (2 paths)
+Browser support: `app/favicon.ico` (primary) + SVG + PNG size variants in layout.tsx
 
-Note on logo aspect ratio: nexora-logo.svg has a 1.546:1 ratio (stacked icon + wordmark).
-At any height H, width = H × 1.546. At 111px wide (desktop), the logo appears as a strong
-brand anchor appropriate for a premium finance site.
+themeColor: #0B2E59 (updated from #04244A)
 
-All branding assets live in:
-  src/app/favicon.ico  — primary favicon (App Router convention)
-  public/assets/logo/  — logo SVG + PNG variants + icon mark
-  public/              — favicon ICO+PNGs, apple touch icon, android chrome, webmanifest
+---
 
-## Lender Logos (Integrated)
+## SEO (Phase 1)
 
-Location: public/assets/lenders/
-Files: 365finance.png, capify.png, electcapital.png, fleximize.png, fundingcircle.png,
-       bizcap.png, iwoca.png, lendingcrowd.png, lenkie.png, mcl.png,
-       momentafinance.png, swiftfund.png, together.png, youlend.png
+- Title: "Nexora Funding Limited | Commercial Finance for UK Businesses"
+- Description: "Connecting UK businesses with trusted commercial finance solutions through expert, advisor-led funding support. Business loans, invoice finance, asset finance and more."
+- metadataBase: https://nexorafunding.co.uk (TODO: confirm domain)
+- OpenGraph: title, description, type=website, locale=en_GB, siteName
+- Twitter card: summary_large_image
+- Canonical: https://nexorafunding.co.uk (TODO: confirm domain)
+- robots: index=true, follow=true
+- `public/robots.txt`: Allow all, Sitemap pointer
+- `public/sitemap.xml`: homepage + 8 service pages with lastmod 2026-07-01
 
-Source: lenders_logos/ folder (client-provided)
-Component: TrustedPartners.tsx uses Next.js Image with object-contain
-Easy update: add/remove entries in the `partners` array in TrustedPartners.tsx
+---
 
-## Hero Image
+## Build / Deployment
 
-Source: Unsplash (royalty-free) — London financial district at dusk
-URL: https://images.unsplash.com/photo-1486325212027-8081e485255e
-Implementation: Next.js <Image> with fill + object-cover
-Overlay: directional gradient to-bottom 48%→58%→65%→72% (image clearly visible)
-Animation: 22s slow zoom preserved (animate-hero-zoom class on wrapper div)
-next.config.ts: remotePatterns allows images.unsplash.com
+next.config.ts: `output: "export"` + `images: { unoptimized: true }`
+- Generates `out/` directory for static hosting (Hostinger shared hosting)
+- To switch to Vercel/VPS: remove `output` and `unoptimized`, restore `remotePatterns` only
+- All 10 routes are static — no API routes, no ISR, no server components with dynamic data
 
-## Supporting Section Images (subtle backgrounds)
+Build command: `npm run build` → outputs to `out/`
+Deploy to Hostinger: upload contents of `out/` to public_html
 
-All at very low opacity (5–7%) — add depth and warmth without distracting from content.
-TODO comments mark every image for licensed replacement when client provides assets.
+---
 
-- WhyChooseUs bg: photo-1600880292203-757bb62b4baf (professional office meeting, 6% opacity)
-- ContactForm bg:  photo-1454165804606-c3d57bc86b40 (business advisory, 7% opacity)
-- Footer bg:       photo-1486325212027-8081e485255e (same as hero, 5% opacity)
+## Compliance Badges (Footer)
 
-## Animations
+Files: `public/assets/compliance/GDPR.png` + `ICO.png` (WebP format despite extension)
+Rendered at: `h-9 w-[70px]` with `brightness(0) invert(1)` filter → white on dark footer
+Labelled: "GDPR Compliant" / "ICO Registered" in 9px uppercase text below each badge
+Opacity: 0.55 base, 0.80 on hover
 
-- Hero background: slow 22s zoom in/out (CSS keyframe heroZoom on Next.js Image wrapper)
-- Cards: hover lift effect (card-lift class)
-- Header: shadow on scroll (useEffect)
-- Page load: fade-in-up on hero content (animate-fade-in)
-- TrustedPartners: 55s CSS marquee (14 logos × 2), pause on hover
-- Header nav: underline scale-x animation on hover (orange)
+---
 
-## Content Rules Observed
+## Lender Logos
 
-- No unverified statistics
-- No FCA claims in body copy
+Location: `public/assets/lenders/`
+14 files: 365finance, capify, electcapital, fleximize, fundingcircle, bizcap, iwoca,
+          lendingcrowd, lenkie, mcl, momentafinance, swiftfund, together, youlend
+Component: TrustedPartners.tsx — CSS marquee, 55s, doubled track, fade edges
+Update: add/remove entries in `partners` array in TrustedPartners.tsx
+
+---
+
+## Service Pages (8 routes)
+
+All placeholder pages using shared `ServicePage` component:
+/business-loans · /asset-finance · /invoice-finance · /merchant-cash-advance
+/secured-business-loans · /unsecured-business-loans · /working-capital · /revolving-credit-facility
+
+Each has unique metadata title and description. Phase 2 will add full content.
+
+---
+
+## Content Rules
+
+- No unverified statistics or made-up claims
+- No FCA regulated claims (awaiting client's FCA reference number)
 - No fake testimonials (clearly marked as TODO placeholders)
-- Lender logos provided by client (explicit asset provision)
-- Hero image: royalty-free Unsplash (London financial district)
-- Phone placeholder: 0000 000 0000 (Footer only)
-- Email placeholder: hello@nexorafunding.co.uk
-- Social links all placeholder (#) until client provides URLs
-- Trustpilot link placeholder (#) until client provides profile URL
+- No copyrighted or competitor imagery (all Unsplash royalty-free, marked for replacement)
+- Original copywriting only
+- Phone placeholder: 0000 000 0000
+- Email: office@nexorafunding.co.uk (confirmed by client)
+- Social links: Facebook + Instagram live; LinkedIn + WhatsApp placeholder (#) until URLs provided
 
-## Removed From Page (components retained)
+---
 
-- CTA Banner (component file kept, not rendered)
-- FAQ (component file kept, not rendered — can restore for Phase 2)
+## Pending Assets (from client)
 
-## Pending Assets Required from Client
-
-- Real logo PNG (logo.png + logo-white.png → drop into public/assets/logo/ — no code changes needed)
-- Favicon (browser default until client provides; easy to add once logo PNG exists)
-- Apple touch icon PNG
-- Licensed section images (WhyChooseUs, Contact — CSS sections currently, can enhance)
-- Real testimonials
-- Real blog articles
-- Final phone number
-- Social media URLs
-- Trustpilot profile URL
-- Newsletter provider URL
+- WhatsApp number → update wa.me/ URLs in TopBar, ContactForm, Footer
+- LinkedIn URL → update href in TopBar + Footer
+- Trustpilot profile URL → update href in TopBar
+- Phone number → replace 0000 000 0000
+- Newsletter signup URL → update Footer "Subscribe" button
+- Office address + geo coordinates → update ContactForm map placeholder + Google Maps embed
+- OG image (1200×630px) → add to public/ and reference in layout.tsx
+- Real testimonials → update Testimonials.tsx
+- Service page content (all 8 placeholder pages)
+- Licensed images for section backgrounds (WhyChooseUs, ContactForm)
+- Privacy Policy / Terms / Complaints page content
 - FCA reference number (if applicable)
-- Privacy Policy, Terms, Complaints documents
-- Registered company number
+
+---
 
 ## Next Actions
 
-1. `npm run dev` → review on localhost:3000
-2. Device QA — mobile + tablet
-3. Client provides real logo PNGs → drop into public/assets/logo/
-4. Client provides Trustpilot URL, social URLs
-5. Vercel deployment
+1. Verify build: `npm run build`
+2. Upload `out/` to Hostinger public_html
+3. Configure custom domain in Hostinger control panel
+4. Submit sitemap to Google Search Console
+5. Provide client with pending asset checklist

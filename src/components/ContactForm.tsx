@@ -153,17 +153,65 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* UK coverage geo element */}
-            <div className="flex items-start gap-4 mt-8 p-4 rounded-xl bg-white/[0.06] border border-white/10">
-              <div className="w-10 h-10 bg-[#C76A1B]/15 border border-[#C76A1B]/25 rounded-xl flex items-center justify-center shrink-0">
-                <svg className="w-5 h-5 text-[#C76A1B]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
+            {/* Premium UK location placeholder card */}
+            <div className="mt-10 rounded-2xl overflow-hidden border border-white/10">
+
+              {/* Map placeholder area */}
+              {/*
+                TODO: Replace this entire div with a Google Maps embed when the office address is confirmed:
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=EMBED_URL_HERE"
+                  width="100%" height="160" style={{ border: 0 }} loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                TODO: Office address: [To be confirmed by client]
+                TODO: Geo coordinates: [latitude], [longitude]
+              */}
+              <div className="relative h-40 bg-[#061830] flex flex-col items-center justify-center overflow-hidden">
+                {/* Subtle map grid lines */}
+                <div
+                  className="absolute inset-0 opacity-[0.055] pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(rgba(199,106,27,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(199,106,27,0.6) 1px, transparent 1px)",
+                    backgroundSize: "36px 36px",
+                  }}
+                />
+                {/* Location rings */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-32 h-32 rounded-full border border-[#C76A1B]/10" />
+                  <div className="absolute inset-[18px] rounded-full border border-[#C76A1B]/18" />
+                  <div className="absolute inset-[34px] rounded-full border border-[#C76A1B]/28" />
+                  {/* Pin dot */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#C76A1B] rounded-full shadow-[0_0_14px_rgba(199,106,27,0.7)]" />
+                </div>
+                <p className="relative z-10 mt-14 text-slate-500/60 text-[10px] font-bold tracking-[0.3em] uppercase">
+                  United Kingdom
+                </p>
               </div>
-              <div>
-                <p className="text-white font-semibold text-sm">Supporting businesses across the UK</p>
-                <p className="text-slate-400 text-xs mt-1 leading-relaxed">London · Manchester · Birmingham · Edinburgh · Bristol · and beyond</p>
+
+              {/* Card body */}
+              <div className="p-5 bg-white/[0.04]">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 bg-[#C76A1B]/15 border border-[#C76A1B]/25 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+                    <svg className="w-4 h-4 text-[#C76A1B]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-semibold text-sm">Supporting businesses across the UK</p>
+                    {/* TODO: Replace with confirmed office address when provided by client */}
+                    <p className="text-[#C76A1B]/70 text-xs font-medium mt-1 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C76A1B]/50 animate-pulse shrink-0" />
+                      Office location coming soon
+                    </p>
+                    <p className="text-slate-500 text-xs mt-2.5 leading-relaxed">
+                      London · Manchester · Birmingham · Edinburgh · Bristol · and beyond
+                    </p>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 

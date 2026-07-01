@@ -1,11 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+// TODO: Update metadataBase with confirmed production domain before launch
+const siteUrl = "https://nexorafunding.co.uk";
+
 export const metadata: Metadata = {
-  title: "Nexora Funding Limited | Funding Growth. Building Futures.",
+  metadataBase: new URL(siteUrl),
+  title: "Nexora Funding Limited | Commercial Finance for UK Businesses",
   description:
-    "Nexora Funding Limited — independent business funding advisors helping UK SMEs access the right finance. From working capital to growth loans. Speak to an advisor today.",
-  keywords: "business funding UK, SME finance, business loans, working capital, growth finance, Nexora Funding",
+    "Connecting UK businesses with trusted commercial finance solutions through expert, advisor-led funding support. Business loans, invoice finance, asset finance and more.",
+  keywords:
+    "business finance UK, commercial finance, business loans, invoice finance, asset finance, merchant cash advance, working capital, SME funding, Nexora Funding",
+  authors: [{ name: "Nexora Funding Limited" }],
   icons: {
     // favicon.ico handled by app/favicon.ico (Next.js special file — most reliable)
     icon: [
@@ -17,17 +23,35 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
+  // TODO: Add OG image at public/og-image.jpg (1200×630px) when brand assets are finalised
   openGraph: {
-    title: "Nexora Funding Limited | Funding Growth. Building Futures.",
+    title: "Nexora Funding Limited | Commercial Finance for UK Businesses",
     description:
-      "Independent business funding advisors helping UK SMEs access the right finance. Speak to an advisor today.",
+      "Connecting UK businesses with trusted commercial finance solutions through expert, advisor-led funding support.",
     type: "website",
     locale: "en_GB",
+    url: siteUrl,
+    siteName: "Nexora Funding Limited",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexora Funding Limited | Commercial Finance for UK Businesses",
+    description:
+      "Connecting UK businesses with trusted commercial finance solutions through expert, advisor-led funding support.",
+  },
+  // TODO: Update canonical with confirmed production domain
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04244A",
+  themeColor: "#0B2E59",
 };
 
 export default function RootLayout({

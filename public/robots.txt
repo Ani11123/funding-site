@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: Update sitemap URL with confirmed production domain before launch
+Sitemap: https://nexorafunding.co.uk/sitemap.xml

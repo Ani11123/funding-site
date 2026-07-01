@@ -163,24 +163,30 @@ export default function Footer() {
 
           {/* GDPR / ICO compliance badges */}
           <div className="flex items-center gap-5">
-            <div className="flex items-center gap-3">
-              <div className="relative h-7 w-14 opacity-50 hover:opacity-70 transition-opacity">
-                <Image
-                  src="/assets/compliance/GDPR.png"
-                  alt="GDPR Compliant"
-                  fill
-                  className="object-contain"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
+            <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center gap-1">
+                <div className="relative h-9 w-[70px] opacity-55 hover:opacity-80 transition-opacity">
+                  <Image
+                    src="/assets/compliance/GDPR.png"
+                    alt="GDPR Compliant"
+                    fill
+                    className="object-contain"
+                    style={{ filter: "brightness(0) invert(1)" }}
+                  />
+                </div>
+                <span className="text-[9px] font-semibold tracking-[0.12em] uppercase text-slate-600">GDPR Compliant</span>
               </div>
-              <div className="relative h-7 w-14 opacity-50 hover:opacity-70 transition-opacity">
-                <Image
-                  src="/assets/compliance/ICO.png"
-                  alt="ICO Registered"
-                  fill
-                  className="object-contain"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
+              <div className="flex flex-col items-center gap-1">
+                <div className="relative h-9 w-[70px] opacity-55 hover:opacity-80 transition-opacity">
+                  <Image
+                    src="/assets/compliance/ICO.png"
+                    alt="ICO Registered"
+                    fill
+                    className="object-contain"
+                    style={{ filter: "brightness(0) invert(1)" }}
+                  />
+                </div>
+                <span className="text-[9px] font-semibold tracking-[0.12em] uppercase text-slate-600">ICO Registered</span>
               </div>
             </div>
 
