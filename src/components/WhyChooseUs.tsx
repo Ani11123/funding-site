@@ -17,7 +17,7 @@ const features = [
       </svg>
     ),
     title: "Real Funding Expertise",
-    desc: "Our advisors bring genuine commercial finance experience — not scripts.",
+    desc: "Our advisors bring genuine commercial finance experience, not scripts.",
   },
   {
     icon: (
@@ -53,7 +53,7 @@ const features = [
       </svg>
     ),
     title: "No Commitment Required",
-    desc: "Speak to us for free. No obligation, no pressure — just honest, straight-talking advice.",
+    desc: "Speak to us for free. No obligation, no pressure. Just honest, straight-talking advice.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
               <span className="text-[#C76A1B]">A Partner You Can Trust.</span>
             </h2>
             <p className="text-slate-300/80 text-base leading-relaxed max-w-md">
-              We don&apos;t just match you with a lender. We work alongside you — understanding your business, your ambitions and the challenges you face.
+              We don&apos;t just match you with a lender. We work alongside you, understanding your business, your ambitions and the challenges you face.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function WhyChooseUs() {
           <div className="hidden lg:flex flex-col justify-center">
             <blockquote className="border-l-2 border-[#C76A1B]/40 pl-6">
               <p className="text-white/80 text-lg leading-relaxed italic font-light">
-                &ldquo;We believe every UK business deserves access to the right funding — not just whatever a bank will approve.&rdquo;
+                &ldquo;We believe every UK business deserves access to the right funding, not just whatever a bank will approve.&rdquo;
               </p>
               <footer className="mt-4 text-[#C76A1B] text-sm font-semibold">Nexora Funding Limited Advisory Team</footer>
             </blockquote>

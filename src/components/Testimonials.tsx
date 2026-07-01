@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote:
-      "As a retail business owner, I didn't know where to start with funding. Nexora Funding Limited guided us through the entire journey — I'd highly recommend speaking to their advisors.",
+      "As a retail business owner, I didn't know where to start with funding. Nexora Funding Limited guided us through the entire journey. I'd highly recommend speaking to their advisors.",
     initials: "R.C.",
     role: "Owner",
     company: "Retail Business",

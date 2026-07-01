@@ -129,8 +129,28 @@ Applied following client sign-off session:
 - Full TODO comment block inside the placeholder div for the Google Maps iframe
 
 **Remaining TODOs (Google Maps)**
-- Replace `div.relative.h-[88px]` in ContactForm.tsx geo card with:
-  `<iframe src="EMBED_URL" width="100%" height="90" loading="lazy" />`
-- TODO: Office address — [To be confirmed by client]
-- TODO: Geo coordinates — [latitude], [longitude]
-- TODO: Get embed URL from Google Maps → Share → Embed a map
+- ~~Replace geo card placeholder~~ ✅ Done — real Google Maps iframe now live in ContactForm
+- Office: Office 19768, 182-184 High Street North, East Ham, London E6 2JA
+- Embed URL: `https://maps.google.com/maps?q=182-184+High+Street+North%2C+East+Ham%2C+London+E6+2JA&t=m&z=16&ie=UTF8&iwloc=B&output=embed`
+
+---
+
+## Round 4 Polish (2026-07-01)
+
+**Copy cleanup**
+- All em dashes (—) replaced with commas or full stops across all rendered components: TrustBar, Process, WhyChooseUs, Services, Testimonials, unsecured-business-loans/page.tsx
+- Dropdown option: "Not Sure — Need Advice" → "Not sure yet, need advice"
+- ContactForm supporting paragraph shortened and made more direct
+
+**Contact section**
+- Confirmed phone: `020 3432 3492` (href: `tel:+442034323492`)
+- Confirmed email: `office@nexorafunding.co.uk`
+- Removed 3 styled contact cards (Phone, WhatsApp, Email) from ContactForm left column
+- Added single-line contact: `020 3432 3492 · office@nexorafunding.co.uk`
+- Replaced geo card placeholder with real Google Maps iframe (no API key, legacy embed format)
+- Office address embedded: Office 19768, 182-184 High Street North, East Ham, London E6 2JA
+
+**Footer**
+- Col 1 description rewritten to 3 clean lines, no em dashes, no phone/email links
+- GDPR/ICO badges moved from copyright bar to Col 4 (below newsletter button, above social icons)
+- Copyright bar simplified (removed GDPR/ICO, removed duplicate "Registered in England & Wales")

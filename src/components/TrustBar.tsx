@@ -35,7 +35,7 @@ export default function TrustBar() {
             Working for your business.
           </h2>
           <p className="text-slate-500 text-[15px] leading-[1.75]">
-            We find the right funding for your situation — and guide you clearly through every step of the process.
+            We find the right funding for your situation and guide you clearly through every step of the process.
           </p>
         </div>
 

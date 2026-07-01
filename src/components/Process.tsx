@@ -7,7 +7,7 @@ const steps = [
       </svg>
     ),
     title: "Tell Us Your Need",
-    desc: "Share your funding requirement, business type and goals. Our team listens — no automated forms, no jargon.",
+    desc: "Share your funding requirement, business type and goals. Our team listens. No automated forms, no jargon.",
   },
   {
     num: "02",
@@ -27,7 +27,7 @@ const steps = [
       </svg>
     ),
     title: "Matched Solutions",
-    desc: "We present tailored funding routes that align with your cashflow, sector and timeline — clearly explained.",
+    desc: "We present tailored funding routes that align with your cashflow, sector and timeline, clearly explained.",
   },
   {
     num: "04",

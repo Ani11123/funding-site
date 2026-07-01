@@ -111,13 +111,59 @@
 [x] Visual hierarchy confirmed: Heading → Copy → Phone/WhatsApp/Email → Geo card → Form (dominant)
 [x] npm run build — 10 static routes, zero errors
 
+## ROUND 4 POLISH — COMPLETE (2026-07-01)
+
+[x] Em dash sweep — all visible copy: TrustBar, Process (steps 1+3), WhyChooseUs (features + body + blockquote), Services (×4), Testimonials, unsecured-business-loans/page.tsx
+[x] ContactForm redesign — removed 3 styled contact cards + compact geo card; added single-line contact (020 3432 3492 · office@nexorafunding.co.uk); added real Google Maps iframe (Office 19768, 182-184 High Street North, East Ham, London E6 2JA)
+[x] ContactForm dropdown — "Not Sure — Need Advice" → "Not sure yet, need advice"
+[x] ContactForm copy — paragraph shortened and made more direct
+[x] Footer Col 1 — description simplified to 3 concise lines; removed phone and email links
+[x] Footer Col 4 — GDPR/ICO badges moved from copyright bar to below newsletter button, above social icons
+[x] Footer copyright bar — simplified (removed GDPR/ICO, removed "Registered in England & Wales" duplicate)
+[x] Build — clean, 10 static routes, zero errors
+
+## FINAL PHASE 1 UI POLISH — COMPLETE (2026-07-01)
+
+[x] ContactForm — added structured contact block (Office / Phone / Email with orange labels, border-white/12 container, per-row dividers) between paragraph and map
+[x] ContactForm — map height increased to h-52 sm:h-60 for better column balance
+[x] ContactForm — left column now visually balances the enquiry form at desktop widths
+[x] Footer — description reduced to 1 concise sentence per Brand DNA tone
+[x] Footer — Col 1 sm:col-span-2 removed; tablet layout now a balanced 2×2 grid
+[x] Footer — grid gap tightened to gap-8 lg:gap-10 (was uniform gap-10)
+[x] Footer — logo size reduced to 140/155/170px (was 155/175/200px) for proportional balance
+[x] Footer — footer body padding py-14 → py-12 for tighter vertical rhythm
+[x] Build — clean, 10 static routes, zero errors
+
+## CONTACT SECTION BALANCE FIX — COMPLETE (2026-07-01)
+
+[x] Grid: items-start → items-stretch so both columns lock to the same height
+[x] Left column: wrapped in flex flex-col so map can flex-1 to fill remaining space
+[x] Grid gap: gap-14 lg:gap-20 → gap-10 lg:gap-14 (tighter, more connected)
+[x] Contact card: Office condensed to 2 lines; Phone + Email placed side-by-side in a split row
+[x] Contact card padding: py-4 → py-3.5 per row (compact without feeling cramped)
+[x] Map: removed fixed h-52 sm:h-60 — now flex-1 min-h-[180px] so it auto-fills to match form
+[x] Result: left column and form card finish at the same baseline on all desktop widths
+[x] Mobile/tablet: stacking unaffected; min-h-[180px] ensures map always readable
+[x] Build — clean, 10 static routes, zero errors
+
+## FOOTER TRUST REORDER + SPACING — COMPLETE (2026-07-01)
+
+[x] Col 4 reordered: GDPR/ICO badges → Newsletter button → Social icons (trust hierarchy: compliance first, CTA second)
+[x] Grid body padding: py-10 → py-8
+[x] Col 1 logo margin: mb-4 → mb-3
+[x] Col 2 heading margin: mb-4 → mb-3
+[x] Col 3 heading margin: mb-4 → mb-3
+[x] Col 4 heading margin: mb-4 → mb-3
+[x] Copyright bar: py-4 → py-3, gap-4 → gap-3
+[x] All badge/newsletter/social styling and colours preserved exactly
+[x] Build — clean, 10 static routes, zero errors
+
 ## PENDING
 
 [ ] Upload out/ to Hostinger public_html
 [ ] Configure custom domain in Hostinger
 [ ] Submit sitemap to Google Search Console
-[ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, phone number, office address + geo coordinates (to complete geo card Google Maps embed), OG image, testimonials, policy pages
-[ ] Replace ContactForm geo card 88px placeholder div with Google Maps iframe once office address is confirmed
+[ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, office address, OG image, testimonials, policy pages
 [ ] Visual QA on real devices (mobile/tablet) after Hostinger deployment
 
 ## PHASE 2 (FUTURE)

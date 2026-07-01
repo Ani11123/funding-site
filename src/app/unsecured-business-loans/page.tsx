@@ -6,7 +6,7 @@ export default function UnsecuredBusinessLoansPage() {
   return (
     <ServicePage
       title="Unsecured Business Loans"
-      description="No collateral required — quick access to funds for operational needs and growth."
+      description="No collateral required. Quick access to funds for operational needs and growth."
     />
   );
 }

@@ -58,7 +58,7 @@ const services = [
       </svg>
     ),
     title: "Unsecured Business Loans",
-    description: "No collateral required — quick access to funds for operational needs and growth.",
+    description: "No collateral required. Quick access to funds for operational needs and growth.",
     route: "/unsecured-business-loans",
   },
   {
@@ -106,14 +106,14 @@ export default function Services() {
               Choose the funding route<br className="hidden sm:block" /> that fits your business.
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-lg mb-8">
-              Every business has different needs. We work with you to understand your situation — then match you to the funding route that makes the most commercial sense.
+              Every business has different needs. We work with you to understand your situation, then match you to the funding route that makes the most commercial sense.
             </p>
 
             {/* Advisor callout — orange left-border block */}
             <div className="border-l-[3px] border-[#C76A1B] bg-white rounded-r-xl pl-5 pr-5 py-5 shadow-sm">
               <p className="text-[#333333] text-sm leading-[1.75]">
                 <span className="text-[#0B2E59] font-semibold">Not sure which option fits?</span>{" "}
-                Our advisors take the time to understand your business stage, cashflow and growth plans — then guide you to the right solution.
+                Our advisors take the time to understand your business stage, cashflow and growth plans, then guide you to the right solution.
               </p>
               <a
                 href="#contact"
@@ -192,7 +192,7 @@ export default function Services() {
           <div className="max-w-lg">
             <h3 className="text-[#0B2E59] font-bold text-lg sm:text-xl mb-2">Ready to explore your options?</h3>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-              Speak to one of our advisors and get clear, honest guidance on the funding route that fits your business — with no obligation.
+              Speak to one of our advisors and get clear, honest guidance on the funding route that fits your business, with no obligation.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">

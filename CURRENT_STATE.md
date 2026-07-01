@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Status: Phase 1 Final Refinement — Complete (2026-07-01)
+Status: Footer Trust Reorder + Spacing — Complete (2026-07-01)
 Build: ✅ Clean (static export, 10 routes)
 Deployment target: Hostinger (static) or Vercel (server)
 
@@ -35,8 +35,8 @@ Fonts:
 8.  Testimonials — 3 placeholder cards (TODO: real content)
 9.  BlogPreview — 3 placeholder article cards (TODO: real content)
 10. TrustedPartners — 14 lender logos, 55s CSS marquee
-11. ContactForm (#contact) — advisory headline + contact options (Phone/WhatsApp/Email) + compact geo card (map placeholder, TODO for Google Maps iframe) + dominant white form card (right col)
-12. Footer — 4-col: brand | Business Finance links | Company links | Newsletter + socials | GDPR/ICO badges
+11. ContactForm (#contact) — grid items-stretch + left col flex-col; heading + paragraph + compact contact card (Office 2-line, Phone+Email side-by-side) + map (flex-1, min-h-180px, auto-fills to match form height) | right col: white form card
+12. Footer — balanced 4-col: brand (1 sentence desc) | Business Finance links | Company links | GDPR/ICO badges → Newsletter → Social icons
 
 ---
 
@@ -107,12 +107,21 @@ Deploy to Hostinger: upload contents of `out/` to public_html
 
 ---
 
+## Footer Layout
+
+Grid: `sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10` — balanced 2×2 on tablet, 4-col on desktop
+Col 1: logo (140/155/170px) + 1-sentence description
+Col 2: Business Finance links (6 items)
+Col 3: Company links (4 items)
+Col 4: Stay Informed blurb + newsletter button + GDPR/ICO badges + 4 social icons
+
 ## Compliance Badges (Footer)
 
 Files: `public/assets/compliance/GDPR.png` + `ICO.png` (WebP format despite extension)
 Rendered at: `h-9 w-[70px]` with `brightness(0) invert(1)` filter → white on dark footer
 Labelled: "GDPR Compliant" / "ICO Registered" in 9px uppercase text below each badge
 Opacity: 0.55 base, 0.80 on hover
+Position: Col 4, between newsletter button and social icons
 
 ---
 
@@ -149,14 +158,18 @@ Each has unique metadata title and description. Phase 2 will add full content.
 
 ---
 
+## Contact Details (confirmed)
+
+- Phone: `020 3432 3492` (href: `tel:+442034323492`) — applied in ContactForm
+- Email: `office@nexorafunding.co.uk` — applied in ContactForm
+- Office: Office 19768, 182-184 High Street North, East Ham, London E6 2JA — Google Maps embed live in ContactForm
+
 ## Pending Assets (from client)
 
-- WhatsApp number → update wa.me/ URLs in TopBar, ContactForm, Footer
+- WhatsApp number → update wa.me/ URLs in TopBar + Footer
 - LinkedIn URL → update href in TopBar + Footer
 - Trustpilot profile URL → update href in TopBar
-- Phone number → replace 0000 000 0000
 - Newsletter signup URL → update Footer "Subscribe" button
-- Office address + geo coordinates → update ContactForm map placeholder + Google Maps embed
 - OG image (1200×630px) → add to public/ and reference in layout.tsx
 - Real testimonials → update Testimonials.tsx
 - Service page content (all 8 placeholder pages)
