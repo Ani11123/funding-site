@@ -35,9 +35,8 @@ Fonts:
 8.  Testimonials — 3 placeholder cards (TODO: real content)
 9.  BlogPreview — 3 placeholder article cards (TODO: real content)
 10. TrustedPartners — 14 lender logos, 55s CSS marquee
-11. ContactForm (#contact) — info panel + trust-building panel (UK coverage, signals, compact contacts) + white form card
-12. LocationSection — Google Maps placeholder section (CSS grid bg, office details cards, all TODO-commented for easy replacement)
-13. Footer — 4-col: brand | Business Finance links | Company links | Newsletter + socials | GDPR/ICO badges
+11. ContactForm (#contact) — advisory headline + contact options (Phone/WhatsApp/Email) + compact geo card (map placeholder, TODO for Google Maps iframe) + dominant white form card (right col)
+12. Footer — 4-col: brand | Business Finance links | Company links | Newsletter + socials | GDPR/ICO badges
 
 ---
 

@@ -9,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import BlogPreview from "@/components/BlogPreview";
 import TrustedPartners from "@/components/TrustedPartners";
 import ContactForm from "@/components/ContactForm";
-import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -51,9 +50,6 @@ export default function Home() {
 
         {/* 8. Contact Form */}
         <ContactForm />
-
-        {/* 9. Office Location — Google Maps placeholder (embed to be added when address confirmed) */}
-        <LocationSection />
       </main>
 
       <Footer />

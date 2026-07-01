@@ -102,3 +102,35 @@
 * Blog content
 * Final social links
 * Final phone/email/address
+
+---
+
+## Phase 1 Final Contact Section Refinement (2026-07-01)
+
+Applied following client sign-off session:
+
+**UX Improvements**
+- ContactForm heading updated: "Speak with a Commercial Finance Advisor." — more direct, advisor-led, conversion-focused
+- Supporting copy updated: "Whether you're exploring funding for growth, equipment, property or working capital, our experienced advisors are here to help you find the right solution." — consultative, plain English, lists real use cases
+- Removed the standalone "Find Our Office / LocationSection" below ContactForm — eliminated unnecessary scroll distance and page distraction
+- Visual hierarchy rationalised: Heading → Copy → Phone / WhatsApp / Email → Geo card → Enquiry form
+
+**Conversion Improvements**
+- Left column copy is now concise and advisory rather than generic
+- Contact options (Phone, WhatsApp, Email) retain prominence above the geo card
+- White form card remains dominant visual element on the right
+- All competing secondary elements removed — single clear CTA: submit the enquiry form
+
+**Geo-Tagging Implementation**
+- Compact geo card sits below the three contact options on the left column
+- Label row: "Serving Businesses Across the UK" with globe icon
+- 88px map placeholder area (CSS grid texture, "Map — coming soon" label)
+- Supporting text: "Our advisors support businesses nationwide. Office details will be confirmed shortly."
+- Full TODO comment block inside the placeholder div for the Google Maps iframe
+
+**Remaining TODOs (Google Maps)**
+- Replace `div.relative.h-[88px]` in ContactForm.tsx geo card with:
+  `<iframe src="EMBED_URL" width="100%" height="90" loading="lazy" />`
+- TODO: Office address — [To be confirmed by client]
+- TODO: Geo coordinates — [latitude], [longitude]
+- TODO: Get embed URL from Google Maps → Share → Embed a map

@@ -97,9 +97,18 @@
 ## PHASE 1 POST-REFINEMENT — COMPLETE (2026-07-01)
 
 [x] WhyChooseUs cards — backdrop-blur-sm, bg-white/[0.09]→0.13, border-white/20, p-7, icon w-12 h-12 rounded-xl, heading text-base mb-3, body text-slate-200/90
-[x] ContactForm trust panel — removed CSS map placeholder; added structured panel: UK Wide Coverage header, 3 trust signals (response time, expert advisors, no obligation), compact contact summary (WhatsApp/Email/Phone)
-[x] LocationSection component — new section below ContactForm with: CSS grid map placeholder (TODO for Google Maps iframe), Address card (TODO), Office Hours card (Mon-Fri 9am-6pm TODO), Directions card (TODO), CTA back to #contact
-[x] page.tsx — LocationSection imported and rendered between ContactForm and Footer
+[x] ContactForm trust panel (v1) — removed CSS map placeholder; added structured trust/signal panel
+[x] LocationSection component created (retained as file but removed from page — see below)
+[x] npm run build — 10 static routes, zero errors
+
+## CONTACT SECTION FINAL SIGN-OFF — COMPLETE (2026-07-01)
+
+[x] Removed standalone "Find Our Office" LocationSection from page.tsx — created unnecessary scroll distance and distracted from the form
+[x] ContactForm heading: "Let's find the right funding..." → "Speak with a Commercial Finance Advisor."
+[x] ContactForm supporting copy: updated to "Whether you're exploring funding for growth, equipment, property or working capital, our experienced advisors are here to help you find the right solution."
+[x] Removed multi-zone trust panel (UK Coverage header + 3 signal rows + compact contacts) — replaced with a single compact geo card
+[x] Compact geo card: "Serving Businesses Across the UK" label | 88px map placeholder (TODO for Google Maps iframe, office address, geo coordinates) | short supporting text. Sits immediately below the three contact options on the left column.
+[x] Visual hierarchy confirmed: Heading → Copy → Phone/WhatsApp/Email → Geo card → Form (dominant)
 [x] npm run build — 10 static routes, zero errors
 
 ## PENDING
@@ -107,8 +116,8 @@
 [ ] Upload out/ to Hostinger public_html
 [ ] Configure custom domain in Hostinger
 [ ] Submit sitemap to Google Search Console
-[ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, phone number, office address + geo coordinates (for LocationSection Google Maps embed), OG image, testimonials, policy pages
-[ ] Replace LocationSection CSS placeholder with real Google Maps iframe once office address is confirmed
+[ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, phone number, office address + geo coordinates (to complete geo card Google Maps embed), OG image, testimonials, policy pages
+[ ] Replace ContactForm geo card 88px placeholder div with Google Maps iframe once office address is confirmed
 [ ] Visual QA on real devices (mobile/tablet) after Hostinger deployment
 
 ## PHASE 2 (FUTURE)
