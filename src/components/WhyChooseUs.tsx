@@ -125,13 +125,13 @@ export default function WhyChooseUs() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="group bg-white/10 hover:bg-white/[0.15] border border-white/[0.15] hover:border-[#C76A1B]/30 rounded-xl p-6 transition-all duration-200"
+              className="group bg-white/[0.09] hover:bg-white/[0.13] backdrop-blur-sm border border-white/20 hover:border-[#C76A1B]/40 rounded-xl p-7 transition-all duration-300"
             >
-              <div className="w-10 h-10 bg-[#C76A1B]/20 border border-[#C76A1B]/30 rounded-lg flex items-center justify-center text-[#C76A1B] mb-4 group-hover:bg-[#C76A1B]/30 transition-colors duration-200">
+              <div className="w-12 h-12 bg-[#C76A1B]/[0.22] border border-[#C76A1B]/40 rounded-xl flex items-center justify-center text-[#C76A1B] mb-5 group-hover:bg-[#C76A1B]/30 transition-colors duration-300 shrink-0">
                 {feature.icon}
               </div>
-              <h3 className="text-white font-bold text-[15px] mb-2 leading-snug">{feature.title}</h3>
-              <p className="text-slate-300 text-sm leading-relaxed">{feature.desc}</p>
+              <h3 className="text-white font-bold text-base mb-3 leading-snug">{feature.title}</h3>
+              <p className="text-slate-200/90 text-sm leading-relaxed">{feature.desc}</p>
             </div>
           ))}
         </div>
