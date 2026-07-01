@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   icons: {
     // favicon.ico handled by app/favicon.ico (Next.js special file — most reliable)
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },

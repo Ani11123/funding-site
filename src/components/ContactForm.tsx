@@ -147,9 +147,22 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">Email us</p>
-                  <p className="text-[#C76A1B] font-bold">hello@nexorafunding.co.uk</p>
+                  <p className="text-[#C76A1B] font-bold">office@nexorafunding.co.uk</p>
                   <p className="text-slate-400 text-xs mt-0.5">We respond within one working day</p>
                 </div>
+              </div>
+            </div>
+
+            {/* UK coverage geo element */}
+            <div className="flex items-start gap-4 mt-8 p-4 rounded-xl bg-white/[0.06] border border-white/10">
+              <div className="w-10 h-10 bg-[#C76A1B]/15 border border-[#C76A1B]/25 rounded-xl flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5 text-[#C76A1B]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">Supporting businesses across the UK</p>
+                <p className="text-slate-400 text-xs mt-1 leading-relaxed">London · Manchester · Birmingham · Edinburgh · Bristol · and beyond</p>
               </div>
             </div>
           </div>

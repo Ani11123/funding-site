@@ -31,9 +31,8 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "88vh" }}>
 
-      {/* Hero background — City of London skyline across the Thames; buildings at panoramic distance so no signage is identifiable */}
+      {/* Hero background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Zoom wrapper — slightly oversized so edges don't show on scale-up */}
         <div className="absolute inset-[-4%] animate-hero-zoom">
           <Image
             src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1920&q=85"
@@ -46,7 +45,6 @@ export default function Hero() {
             sizes="100vw"
           />
         </div>
-        {/* Elegant navy gradient — very light at top so golden sky is visible, deepens at the content band for crisp white text */}
         <div
           className="absolute inset-0"
           style={{
@@ -56,7 +54,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Subtle diagonal stripe pattern for texture */}
+      {/* Subtle diagonal stripe pattern */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none z-[1]"
         style={{
@@ -65,7 +63,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Soft radial glow — bottom centre */}
+      {/* Soft radial glow */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[50vh] pointer-events-none z-[1]"
         style={{
@@ -74,7 +72,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Centred content vignette — localised depth only behind the text block; edges stay bright */}
+      {/* Centred content vignette */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
@@ -83,7 +81,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Content — centred single column */}
+      {/* Content */}
       <div className="relative z-[2] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center py-24 lg:py-32">
           <div className="animate-fade-in text-center max-w-3xl mx-auto">
@@ -97,7 +95,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-white leading-[1.13] mb-8"
+              className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-white leading-[1.13] mb-6"
               style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.30)" }}
             >
               The Right Funding.
@@ -111,17 +109,12 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Tagline */}
-            <p className="text-[#C76A1B]/70 text-xs font-semibold tracking-[0.22em] uppercase mb-5">
-              Funding Growth. Building Futures.
-            </p>
-
-            {/* Subheading */}
+            {/* Hero tagline — updated per client */}
             <p
-              className="text-base sm:text-lg text-white/80 leading-[1.8] mb-10 max-w-xl mx-auto"
+              className="text-white/80 text-base sm:text-lg leading-[1.7] mb-10 max-w-2xl mx-auto"
               style={{ textShadow: "0 1px 10px rgba(0,0,0,0.40)" }}
             >
-              We connect UK businesses with flexible funding solutions — from £10,000 to £5,000,000 — through dedicated expert advisors who understand your goals.
+              Connecting UK businesses with trusted commercial finance solutions.
             </p>
 
             {/* CTA buttons */}

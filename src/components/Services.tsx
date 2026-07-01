@@ -9,6 +9,7 @@ const services = [
     ),
     title: "Business Loans",
     description: "Flexible loan terms structured around your cashflow and growth objectives.",
+    route: "/business-loans",
   },
   {
     icon: (
@@ -18,6 +19,7 @@ const services = [
     ),
     title: "Asset Finance",
     description: "Finance equipment, vehicles and machinery without straining working capital.",
+    route: "/asset-finance",
   },
   {
     icon: (
@@ -27,6 +29,7 @@ const services = [
     ),
     title: "Invoice Finance",
     description: "Release cash tied up in outstanding invoices to maintain steady cashflow.",
+    route: "/invoice-finance",
   },
   {
     icon: (
@@ -36,6 +39,7 @@ const services = [
     ),
     title: "Merchant Cash Advance",
     description: "Access fast funding based on your card turnover with flexible repayments.",
+    route: "/merchant-cash-advance",
   },
   {
     icon: (
@@ -45,6 +49,7 @@ const services = [
     ),
     title: "Secured Business Loans",
     description: "Larger funding amounts secured against business assets or commercial property.",
+    route: "/secured-business-loans",
   },
   {
     icon: (
@@ -54,6 +59,7 @@ const services = [
     ),
     title: "Unsecured Business Loans",
     description: "No collateral required — quick access to funds for operational needs and growth.",
+    route: "/unsecured-business-loans",
   },
   {
     icon: (
@@ -63,6 +69,7 @@ const services = [
     ),
     title: "Working Capital",
     description: "Keep operations running smoothly with tailored working capital facilities.",
+    route: "/working-capital",
   },
   {
     icon: (
@@ -72,26 +79,27 @@ const services = [
     ),
     title: "Revolving Credit Facility",
     description: "Flexible credit access you can draw on whenever your business needs it.",
+    route: "/revolving-credit-facility",
   },
 ];
 
 export default function Services() {
   return (
     <section
-      id="services"
+      id="business-finance"
       className="py-20 lg:py-28 bg-[#F4F5F7]"
-      style={{ scrollMarginTop: "124px" }}
+      style={{ scrollMarginTop: "160px" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Editorial header ── */}
-        <div className="lg:flex lg:items-start lg:gap-14 xl:gap-16 mb-16 lg:mb-20">
+        <div className="lg:flex lg:items-stretch lg:gap-14 xl:gap-16 mb-16 lg:mb-20">
 
           {/* Left — heading, copy and advisor callout */}
           <div className="lg:w-[54%] mb-10 lg:mb-0">
             <p className="inline-flex items-center gap-2 text-[#C76A1B] text-xs font-bold tracking-[0.2em] uppercase mb-4">
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
-              Funding Options
+              Business Finance
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
             </p>
             <h2 className="text-3xl sm:text-[34px] font-bold text-[#0B2E59] mb-4 leading-tight">
@@ -119,13 +127,13 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Right — premium image with advisor badge */}
+          {/* Right — premium image, height matches left column via items-stretch */}
           <div className="lg:w-[46%]">
-            {/* TODO: Replace with client-approved licensed image — target path: public/assets/images/sections/funding-options.jpg */}
-            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.11)]">
+            {/* TODO: Replace with client-approved licensed image — target path: public/assets/images/sections/business-finance.jpg */}
+            <div className="relative aspect-[3/2] lg:aspect-auto lg:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.11)]">
               <Image
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80"
-                alt="Professional advisor reviewing funding options with a UK business owner"
+                alt="Professional advisor reviewing business finance options with a UK business owner"
                 fill
                 className="object-cover object-center"
                 sizes="(min-width: 1024px) 46vw, 100vw"
@@ -151,10 +159,10 @@ export default function Services() {
         {/* ── Card grid sub-label ── */}
         <p className="inline-flex items-center gap-2 text-[#C76A1B] text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
           <span className="w-3 h-[2px] bg-[#C76A1B] rounded" />
-          Our Funding Solutions
+          Our Business Finance Solutions
         </p>
 
-        {/* ── Funding option cards ── */}
+        {/* ── Service cards ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service) => (
             <div
@@ -167,10 +175,10 @@ export default function Services() {
               <h3 className="text-[#0B2E59] font-bold text-base mb-2 leading-snug">{service.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-5">{service.description}</p>
               <a
-                href="#contact"
+                href={service.route}
                 className="inline-flex items-center gap-1.5 text-[#C76A1B] text-sm font-bold group-hover:gap-3 transition-all duration-200"
               >
-                Enquire now
+                Explore now
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import LogoMark from "@/components/LogoMark";
 
 const navLinks = [
-  { label: "Funding Options", href: "#services" },
+  { label: "Business Finance", href: "#business-finance" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
+      className={`sticky top-9 z-50 bg-white transition-shadow duration-300 ${
         scrolled ? "shadow-md" : "shadow-sm border-b border-slate-100"
       }`}
     >

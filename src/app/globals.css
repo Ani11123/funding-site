@@ -92,20 +92,20 @@ h1, h2, h3, h4 {
   animation-play-state: paused;
 }
 
-/* ── Scroll margin offset for sticky header ── */
+/* ── Scroll margin offset for combined sticky TopBar (36px) + Header ── */
 section[id] {
-  scroll-margin-top: 92px; /* mobile: 84px header + 8px buffer */
+  scroll-margin-top: 128px; /* mobile: 36px TopBar + 84px Header + 8px buffer */
 }
 
 @media (min-width: 640px) {
   section[id] {
-    scroll-margin-top: 104px; /* tablet: 96px header + 8px buffer */
+    scroll-margin-top: 140px; /* tablet: 36px TopBar + 96px Header + 8px buffer */
   }
 }
 
 @media (min-width: 1024px) {
   section[id] {
-    scroll-margin-top: 116px; /* desktop: 108px header + 8px buffer */
+    scroll-margin-top: 152px; /* desktop: 36px TopBar + 108px Header + 8px buffer */
   }
 }
 
