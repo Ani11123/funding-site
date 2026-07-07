@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Status: Footer Trust Reorder + Spacing — Complete (2026-07-01)
+Status: Final Typography System Pass — Complete (2026-07-01)
 Build: ✅ Clean (static export, 10 routes)
 Deployment target: Hostinger (static) or Vercel (server)
 
@@ -113,7 +113,7 @@ Grid: `sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10` — balanced 2×2 on table
 Col 1: logo (140/155/170px) + 1-sentence description
 Col 2: Business Finance links (6 items)
 Col 3: Company links (4 items)
-Col 4: Stay Informed blurb + newsletter button + GDPR/ICO badges + 4 social icons
+Col 4: Stay Informed blurb + GDPR/ICO badges + Newsletter button + 4 social icons
 
 ## Compliance Badges (Footer)
 

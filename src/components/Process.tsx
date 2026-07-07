@@ -48,12 +48,12 @@ export default function Process() {
 
         {/* Section heading */}
         <div className="text-center mb-14">
-          <p className="inline-flex items-center gap-2 text-[#C76A1B] text-xs font-bold tracking-[0.2em] uppercase mb-3">
+          <p className="inline-flex items-center gap-2 text-[#C76A1B] text-xs font-bold tracking-[0.2em] uppercase mb-4">
             <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
             How It Works
             <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B2E59] mb-3 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B2E59] mb-4 leading-tight tracking-tight max-w-2xl mx-auto">
             Four Clear Steps to Your Funding
           </h2>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -97,7 +97,7 @@ export default function Process() {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-[#0B2E59] hover:bg-[#082347] text-white font-semibold text-sm px-7 py-3.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+            className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-bold text-sm px-7 py-3.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
           >
             Start Your Journey
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

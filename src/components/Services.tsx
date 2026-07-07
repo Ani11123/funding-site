@@ -102,7 +102,7 @@ export default function Services() {
               Business Finance
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
             </p>
-            <h2 className="text-3xl sm:text-[34px] font-bold text-[#0B2E59] mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B2E59] mb-4 leading-tight tracking-tight">
               Choose the funding route<br className="hidden sm:block" /> that fits your business.
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-lg mb-8">
@@ -167,9 +167,9 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group bg-white border border-slate-200/80 hover:border-[#C76A1B]/30 rounded-xl p-6 lg:p-7 card-lift"
+              className="group bg-white border border-slate-200/80 hover:border-[#C76A1B]/30 rounded-2xl p-6 lg:p-7 card-lift"
             >
-              <div className="w-11 h-11 bg-[#0B2E59] rounded-lg flex items-center justify-center text-white mb-5 shrink-0 group-hover:bg-[#C76A1B] transition-colors duration-300">
+              <div className="w-12 h-12 bg-[#0B2E59] rounded-xl flex items-center justify-center text-white mb-5 shrink-0 group-hover:bg-[#C76A1B] transition-colors duration-300">
                 {service.icon}
               </div>
               <h3 className="text-[#0B2E59] font-bold text-base mb-2 leading-snug">{service.title}</h3>

@@ -98,7 +98,7 @@ export default function ContactForm() {
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
               Get in Touch
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white mb-4 leading-tight tracking-tight">
               Speak with a Commercial Finance Advisor.
             </h2>
             <p className="text-slate-300/80 leading-relaxed mb-6 text-base max-w-md">
@@ -287,7 +287,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#C76A1B] hover:bg-[#a85918] disabled:opacity-70 text-white font-bold py-3.5 rounded-lg transition-all duration-200 text-sm flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm"
+                    className="w-full bg-[#C76A1B] hover:bg-[#a85918] disabled:opacity-70 text-white font-bold py-3.5 rounded-md transition-all duration-200 text-sm flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm"
                   >
                     {loading ? (
                       <>

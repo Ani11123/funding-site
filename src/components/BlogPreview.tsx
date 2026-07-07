@@ -50,11 +50,11 @@ export default function BlogPreview() {
         {/* Section heading */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-12">
           <div>
-            <p className="inline-flex items-center gap-2 text-[#C76A1B] text-xs font-bold tracking-[0.2em] uppercase mb-3">
+            <p className="inline-flex items-center gap-2 text-[#C76A1B] text-xs font-bold tracking-[0.2em] uppercase mb-4">
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
               Insights
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B2E59] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B2E59] leading-tight tracking-tight">
               Funding Guides &amp; Insights
             </h2>
           </div>

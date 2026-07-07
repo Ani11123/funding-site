@@ -86,7 +86,7 @@ export default function WhyChooseUs() {
       <div
         className="absolute -top-32 -right-32 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(176,141,87,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(199,106,27,0.08) 0%, transparent 70%)",
         }}
       />
 
@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
               <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
               Why Choose Us
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight mb-5">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight mb-4 tracking-tight">
               More Than Funding.
               <br />
               <span className="text-[#C76A1B]">A Partner You Can Trust.</span>

@@ -50,7 +50,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-semibold text-[15px] px-6 py-2.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+              className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-bold text-[15px] px-6 py-2.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
             >
               Speak to Advisor
             </a>
@@ -60,7 +60,7 @@ export default function Header() {
           <div className="flex items-center gap-2.5 lg:hidden">
             <a
               href="#contact"
-              className="bg-[#C76A1B] hover:bg-[#a85918] text-white font-semibold text-xs px-3.5 py-2 rounded-md transition-colors duration-150"
+              className="bg-[#C76A1B] hover:bg-[#a85918] text-white font-bold text-xs px-3.5 py-2 rounded-md transition-colors duration-150"
             >
               Speak to Advisor
             </a>

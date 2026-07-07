@@ -37,7 +37,7 @@ export default function TrustedPartners() {
           Trusted Partners
           <span className="w-4 h-[2px] bg-[#C76A1B] rounded" />
         </p>
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2E59] leading-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B2E59] leading-tight tracking-tight max-w-2xl mx-auto">
           Our Lender &amp; Partner Network
         </h2>
         <p className="text-slate-500 text-sm mt-2 max-w-md mx-auto">
