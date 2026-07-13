@@ -282,8 +282,47 @@ BUILD
 [x] Build — clean, 10 static routes, zero TypeScript errors
 [x] Documentation — CURRENT_STATE.md and TASKS.md updated; Footer Layout Col 4 description corrected
 
+## BUSINESS FINANCE PAGE TEMPLATE — COMPLETE, PENDING CLIENT APPROVAL (2026-07-13)
+
+[x] Installed lucide-react (first icon library dependency on the project; sitewide icons were previously inline SVG)
+[x] Defined `BusinessFinancePageContent` content contract (`src/components/business-finance/types.ts`) — the reusable shape every Business Finance page will supply
+[x] Built 11 section components (Breadcrumb, Hero, Intro, KeyBenefits, HowItWorks, Eligibility, LoanTypes, WhyChoose, Faq, RelatedSolutions, FinalCta) in `src/components/business-finance/`, each reusing the existing design system exactly (palette, Eyebrow pattern, card-lift, icon treatment, type scale)
+[x] Built `Template.tsx` composing TopBar → Header → Breadcrumb → 10 content sections → Footer
+[x] Wrote full placeholder content for Business Loans (`src/data/business-loans.ts`) — original copy, no fabricated stats, no FCA claims, Brand DNA voice
+[x] Rebuilt `/business-loans/page.tsx` on the new template: per-page metadata, canonical, OpenGraph, Twitter card, BreadcrumbList JSON-LD schema
+[x] All CTAs route to `/#contact` (page has no contact form of its own)
+[x] `npm run build` — clean, 10 static routes, zero TypeScript errors
+[x] Live QA in headless Chromium at 1440px (desktop) and 390px (mobile): breadcrumb, hero, all sections, FAQ accordion open/close, Related Solutions links verified, zero console errors
+[x] CURRENT_STATE.md + TASKS.md updated documenting the template
+
+**Waiting on client approval before:** migrating the other 7 service pages (asset-finance, invoice-finance, merchant-cash-advance, secured/unsecured-business-loans, working-capital, revolving-credit-facility) to this template, pushing to GitHub, or deploying.
+
+## CONTACT FORM VALIDATION — COMPLETE (2026-07-13)
+
+[x] Created `src/lib/contactFormValidation.ts` — `ContactFormData` type, per-field validators (name, businessName, phone, email, fundingType, amount, message), `validateContactForm()`
+[x] Created `src/lib/contactFormSubmit.ts` — `handleSubmitValidatedForm()` submission boundary abstraction, mocked (no network call), with full Phase 2 TODO block for CRM integration
+[x] Name — required, min 2 chars, rejects numbers-only
+[x] Business name — required, min 2 chars
+[x] Phone — required, supports UK + international (`+`, spaces, brackets, hyphens), validated by digit count (7-15) rather than a rigid pattern
+[x] Email — required, format-checked, trimmed cleanly on blur
+[x] Funding type + Funding amount — now required (previously optional)
+[x] Message — optional, max 750 chars, live character counter
+[x] Inline errors beneath each field: icon + red text (not colour alone), `aria-invalid` + `aria-describedby`, `role="alert"`
+[x] Errors only shown after blur/touch or a submit attempt — never before interaction; clear live once valid
+[x] Focus moves to first invalid field on failed submit; entered values always preserved
+[x] Submit button disables during submission; `isSubmittingRef` guards against same-tick double-submit race
+[x] Native form validation disabled (`noValidate`) so custom UI has full control
+[x] No CRM/API call, no server-side validation, no CAPTCHA, no localStorage persistence, no console logging of form data (all intentional Phase 1 boundaries)
+[x] `npm run build` — clean, zero TypeScript errors, 10 static routes
+[x] QA in headless Chromium: empty submission, invalid email, invalid phone, numbers-only name, missing dropdowns, live error-clearing, value preservation, valid submission → success, double-submit prevention, keyboard-only navigation, mobile (390px) layout — all confirmed, zero console errors
+[x] CURRENT_STATE.md, TASKS.md, CLIENT_CHANGE_REQUESTS.md updated
+
+**Not done (explicitly out of scope, deferred to Phase 2):** CRM/API integration, server-side validation, spam protection, lead routing, consent logging, automated notifications. See `src/lib/contactFormSubmit.ts` for the itemised TODO list at the integration boundary.
+
 ## PENDING
 
+[ ] Client approval of /business-loans template
+[ ] Migrate remaining 7 service pages to Business Finance Page Template (content only, once approved)
 [ ] Upload out/ to Hostinger public_html
 [ ] Configure custom domain in Hostinger
 [ ] Submit sitemap to Google Search Console

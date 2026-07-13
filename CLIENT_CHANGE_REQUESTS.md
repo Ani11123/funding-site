@@ -135,6 +135,27 @@ Applied following client sign-off session:
 
 ---
 
+## Contact Form Validation (2026-07-13)
+
+Client-side validation added to the homepage ContactForm — form layout and design were not changed, only validation, error handling and submit-flow states.
+
+**Phase 1 (done now):**
+- Client-side form validation for all fields (name, business name, phone, email, funding type, funding amount, message)
+- Accessible inline error handling (icon + text, `aria-invalid`/`aria-describedby`, focus-to-first-error on submit)
+- Loading and success states, with double-submission prevention
+
+**Phase 2 (future scope — not implemented yet):**
+- CRM/API integration (HubSpot, Zoho CRM, Salesforce, Pipedrive, or a custom endpoint — no provider chosen yet)
+- Server-side validation (client-side validation is UX only, not a security boundary)
+- Spam protection (honeypot / rate limiting / CAPTCHA if approved)
+- Lead routing and duplicate lead detection
+- GDPR consent capture and logging
+- Automated notifications (email/Slack alert on new enquiry, etc.)
+
+The submission handler (`src/lib/contactFormSubmit.ts`) is written as a clean boundary specifically so Phase 2 can slot in a real API call without touching the form UI or validation logic.
+
+---
+
 ## Round 4 Polish (2026-07-01)
 
 **Copy cleanup**

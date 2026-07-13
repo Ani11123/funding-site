@@ -137,11 +137,72 @@ Update: add/remove entries in `partners` array in TrustedPartners.tsx
 
 ## Service Pages (8 routes)
 
-All placeholder pages using shared `ServicePage` component:
-/business-loans · /asset-finance · /invoice-finance · /merchant-cash-advance
+/business-loans — **full Business Finance Page Template** (2026-07-13), pending client approval. See below.
+
+Remaining 7 are placeholder pages using shared `ServicePage` component:
+/asset-finance · /invoice-finance · /merchant-cash-advance
 /secured-business-loans · /unsecured-business-loans · /working-capital · /revolving-credit-facility
 
-Each has unique metadata title and description. Phase 2 will add full content.
+Each has unique metadata title and description. Once /business-loans is approved, these will be migrated to the new template (content only needs writing — layout is done).
+
+---
+
+## Business Finance Page Template (2026-07-13) — pending client approval
+
+`/business-loans` is the master template for every Business Finance page. Built content-driven so the remaining 7 routes only need a new data file, not new layout code.
+
+**Architecture:**
+- `src/components/business-finance/types.ts` — `BusinessFinancePageContent` interface, the content contract every page must satisfy
+- `src/components/business-finance/Template.tsx` — composes TopBar, Header, Breadcrumb, all 10 content sections, Footer
+- `src/components/business-finance/*.tsx` — one component per section (Breadcrumb, Hero, Intro, KeyBenefits, HowItWorks, Eligibility, LoanTypes, WhyChoose, Faq, RelatedSolutions, FinalCta), each accepts only its slice of content as props
+- `src/data/business-loans.ts` — all copy/icons for this page; new pages copy this file's shape with new content
+- `src/app/business-loans/page.tsx` — thin wrapper: metadata (title/description/canonical/OG/Twitter) + BreadcrumbList JSON-LD + `<BusinessFinanceTemplate content={businessLoansContent} />`
+
+**Section order:** Breadcrumb (Home / Business Finance / page) → Hero → Intro → Key Benefits (4 icon cards) → How It Works (4 steps, same visual pattern as homepage Process) → Eligibility (checklist card) → Loan Types (card grid) → Why Choose Nexora (simplified/compact dark-navy variant of homepage WhyChooseUs, 4 tiles not 6, no pull quote) → FAQ (accordion, brand colours) → Related Solutions (links to the other 4 real service routes) → Final CTA → Footer.
+
+**Design system:** 100% reused from homepage — same palette, Eyebrow label pattern, `card-lift`, icon box treatment (navy → orange on hover), typography scale (`text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight`). No new colours or type scale introduced.
+
+**Content:** Placeholder copy written in-house (no client content received yet — see Client Change Requests / task history). No fabricated stats, no FCA claims, UK spellings, advisor-led tone per Brand DNA. All CTAs route to `/#contact` (this page has no contact form of its own, links back to homepage contact section).
+
+**New dependency:** `lucide-react` added for all section icons (previously only inline SVGs were used sitewide).
+
+**QA performed:** `npm run build` clean (10 static routes, zero TS errors). Verified live in headless Chromium at 1440px and 390px — breadcrumb, hero, all 10 sections, FAQ accordion open/close, and Related Solutions links (`/asset-finance`, `/invoice-finance`, `/working-capital`, `/merchant-cash-advance`) all confirmed working, zero console errors.
+
+**Not done yet (waiting for client approval before proceeding):**
+- Not pushed to GitHub, not deployed
+- Other 7 service pages not yet migrated to this template
+- Real photography (hero currently uses an Unsplash placeholder, same convention as rest of site)
+- FCA reference / lender panel specifics intentionally left generic pending compliance confirmation
+
+---
+
+## Contact Form Validation (2026-07-13)
+
+Client-side validation added to the homepage ContactForm — layout and visual design unchanged, only field-level validation, error UI and submit-flow states added.
+
+**New files:**
+- `src/lib/contactFormValidation.ts` — `ContactFormData` type (single source of truth for the form shape), per-field validators, `validateContactForm()`, `fieldOrder` (used for focus-first-invalid-field on submit)
+- `src/lib/contactFormSubmit.ts` — `handleSubmitValidatedForm()` submission boundary; currently a mocked 900ms resolve (no network call). Contains the full Phase 2 TODO block (CRM endpoint, auth, consent capture, GDPR consent logging, retry handling, duplicate lead detection, server-side validation, spam protection) — see file for details.
+
+**Validation rules:**
+- Name: required, min 2 chars, rejects numbers-only input
+- Business name: required, min 2 chars
+- Phone: required, allows `+`, spaces, brackets, hyphens; validated by digit count (7–15 digits) rather than a rigid pattern, so it doesn't over-restrict valid UK or international numbers
+- Email: required, format-checked, trimmed on blur
+- Funding type / Funding amount: required (previously optional — this is the one behavioural change to the form's requiredness)
+- Message: optional, max 750 chars (enforced via `maxLength` + validator), live character counter
+
+**UX/accessibility:**
+- Errors only appear after a field is touched (blur) or after a submit attempt — never before interaction
+- Errors clear live as soon as a field becomes valid
+- Each invalid field gets `aria-invalid` + `aria-describedby` pointing at its error text; errors use `role="alert"`, a warning icon, and red text/border (not colour alone)
+- On invalid submit, focus moves to the first invalid field in DOM order; entered values are always preserved
+- Submit button disables during the simulated network delay; an `isSubmittingRef` guard also blocks a same-tick double-submit race independent of the disabled attribute
+- Native browser validation is disabled (`noValidate` on the `<form>`) so this custom UI has full control
+
+**Explicitly not done (by design, Phase 1 scope):** no CRM/API call, no server-side validation, no CAPTCHA, no localStorage persistence of form data, no console logging of submitted values.
+
+**QA performed:** `npm run build` clean, zero TypeScript errors. Verified live in headless Chromium — empty submission, invalid email, invalid phone, numbers-only name, missing dropdowns, error-clears-on-valid-input, value preservation, full valid submission → success state, double-click/rapid-double-submit prevention, keyboard-only tab navigation, and mobile (390px) layout. Zero console errors throughout.
 
 ---
 
