@@ -1,5 +1,23 @@
 # CLIENT_CHANGE_REQUESTS.md
 
+## Business Finance Content Finalisation (2026-07-14)
+
+Overrides prior scope. Client supplied two content files and instructed:
+
+1. **Remove Business Loans completely** — route, data file and all references deleted.
+2. **Remove Working Capital completely** — route deleted.
+3. **Build 6 new Business Finance pages** from the supplied content, replacing the two removed products: Secured Business Loans, Unsecured Business Loans, Merchant Cash Advance, Invoice Finance, Asset Finance, Revolving Credit Facility.
+4. **Reuse the approved Business Finance Page Template** for every page — content-only, no design changes.
+5. **Architecture improvement** — Business Finance product data must live in a single reusable config, not be hardcoded per component. Implemented as `src/data/businessFinanceData.ts`, consumed by the homepage grid, the footer links, and every page's Related Solutions block.
+6. **Homepage** — Business Finance section updated to show only the 6 active products, in a rebalanced 3-column grid (previously 4-column/8-card).
+7. **SEO** — unique title/description/canonical/OpenGraph per page, sitemap updated to the 6 active routes, no Twitter card metadata (explicit instruction this round).
+
+**Content flag raised and resolved during this session:** the "Unsecured Loans.rtf" file supplied referred throughout to a different company ("Capital Bridge Finance", then "Keystone Funding" / "Keystone Business Finance") — Keystone Funding is this project's own listed competitor/reference site (see PROJECT_CONTEXT.md). This was surfaced to the client before use. Decision: keep only the factual substance (loan amounts, rates, timelines, process steps, FAQ facts) and have all copy rewritten fresh in Nexora's own voice, discarding every sentence structure from the supplied file. See PHASE1_SIGNOFF.md for detail.
+
+The other supplied file ("content for 5 pages.rtf") had no such issue and was used as the direct basis for Secured Business Loans, Merchant Cash Advance, Invoice Finance, Asset Finance and Revolving Credit Facility, lightly edited for grammar, punctuation and UK English while preserving the client's commercial meaning.
+
+---
+
 ## Latest Phase 1 Changes
 
 1. Header

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, PhoneCall } from "lucide-react";
 import type { BusinessFinancePageContent } from "./types";
 
@@ -57,20 +58,20 @@ export default function Hero({ content }: { content: BusinessFinancePageContent[
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
+              <Link
                 href="/#contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-bold px-8 py-3.5 rounded-md transition-all duration-200 text-sm shadow-lg hover:-translate-y-0.5"
               >
                 {content.primaryCtaLabel}
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="inline-flex items-center justify-center gap-2 border border-white/25 hover:border-[#C76A1B]/60 text-white hover:text-[#C76A1B] font-semibold px-8 py-3.5 rounded-md transition-all duration-200 text-sm"
               >
                 <PhoneCall className="w-4 h-4" />
                 {content.secondaryCtaLabel}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

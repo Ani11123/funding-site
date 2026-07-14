@@ -16,9 +16,10 @@ import type { BusinessFinancePageContent } from "./types";
 
 /**
  * Master template for every Business Finance service page.
- * Each page (business-loans, asset-finance, invoice-finance, ...) supplies
- * its own BusinessFinancePageContent object — the layout and design system
- * stay identical across all of them.
+ * Each page (secured/unsecured business loans, asset finance, invoice
+ * finance, merchant cash advance, revolving credit) supplies its own
+ * BusinessFinancePageContent object — the layout and design system stay
+ * identical across all of them.
  */
 export default function BusinessFinanceTemplate({ content }: { content: BusinessFinancePageContent }) {
   return (

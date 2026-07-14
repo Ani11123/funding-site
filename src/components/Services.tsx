@@ -1,87 +1,5 @@
 import Image from "next/image";
-
-const services = [
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Business Loans",
-    description: "Flexible loan terms structured around your cashflow and growth objectives.",
-    route: "/business-loans",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    title: "Asset Finance",
-    description: "Finance equipment, vehicles and machinery without straining working capital.",
-    route: "/asset-finance",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    title: "Invoice Finance",
-    description: "Release cash tied up in outstanding invoices to maintain steady cashflow.",
-    route: "/invoice-finance",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-      </svg>
-    ),
-    title: "Merchant Cash Advance",
-    description: "Access fast funding based on your card turnover with flexible repayments.",
-    route: "/merchant-cash-advance",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-    title: "Secured Business Loans",
-    description: "Larger funding amounts secured against business assets or commercial property.",
-    route: "/secured-business-loans",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Unsecured Business Loans",
-    description: "No collateral required. Quick access to funds for operational needs and growth.",
-    route: "/unsecured-business-loans",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    ),
-    title: "Working Capital",
-    description: "Keep operations running smoothly with tailored working capital facilities.",
-    route: "/working-capital",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
-    title: "Revolving Credit Facility",
-    description: "Flexible credit access you can draw on whenever your business needs it.",
-    route: "/revolving-credit-facility",
-  },
-];
+import { businessFinanceProducts } from "@/data/businessFinanceData";
 
 export default function Services() {
   return (
@@ -162,29 +80,32 @@ export default function Services() {
           Our Business Finance Solutions
         </p>
 
-        {/* ── Service cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group bg-white border border-slate-200/80 hover:border-[#C76A1B]/30 rounded-2xl p-6 lg:p-7 card-lift"
-            >
-              <div className="w-12 h-12 bg-[#0B2E59] rounded-xl flex items-center justify-center text-white mb-5 shrink-0 group-hover:bg-[#C76A1B] transition-colors duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-[#0B2E59] font-bold text-base mb-2 leading-snug">{service.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-5">{service.description}</p>
-              <a
-                href={service.route}
-                className="inline-flex items-center gap-1.5 text-[#C76A1B] text-sm font-bold group-hover:gap-3 transition-all duration-200"
+        {/* ── Service cards — 3-column grid, balanced 2 rows of 3 for 6 active products ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {businessFinanceProducts.map((product) => {
+            const Icon = product.icon;
+            return (
+              <div
+                key={product.slug}
+                className="group bg-white border border-slate-200/80 hover:border-[#C76A1B]/30 rounded-2xl p-6 lg:p-7 card-lift"
               >
-                Explore now
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          ))}
+                <div className="w-12 h-12 bg-[#0B2E59] rounded-xl flex items-center justify-center text-white mb-5 shrink-0 group-hover:bg-[#C76A1B] transition-colors duration-300">
+                  <Icon className="w-5 h-5" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-[#0B2E59] font-bold text-base mb-2 leading-snug">{product.navTitle}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">{product.cardDescription}</p>
+                <a
+                  href={product.route}
+                  className="inline-flex items-center gap-1.5 text-[#C76A1B] text-sm font-bold group-hover:gap-3 transition-all duration-200"
+                >
+                  Explore now
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            );
+          })}
         </div>
 
         {/* ── Bottom CTA block ── */}

@@ -1,6 +1,15 @@
 import Eyebrow from "./Eyebrow";
 import type { BusinessFinancePageContent } from "./types";
 
+// Column count adapts to how many cards a page supplies, so 2- or 4-item
+// sections (e.g. Secured Loans' risk cards) sit as evenly as 3-item ones
+// (e.g. Invoice Finance's three facility types) instead of leaving a gap.
+function gridColsForCount(count: number): string {
+  if (count <= 2) return "sm:grid-cols-2 lg:grid-cols-2";
+  if (count === 4) return "sm:grid-cols-2 lg:grid-cols-4";
+  return "sm:grid-cols-2 lg:grid-cols-3";
+}
+
 export default function LoanTypes({ content }: { content: BusinessFinancePageContent["loanTypes"] }) {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-white">
@@ -15,7 +24,7 @@ export default function LoanTypes({ content }: { content: BusinessFinancePageCon
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className={`grid grid-cols-1 ${gridColsForCount(content.items.length)} gap-5`}>
           {content.items.map((item) => (
             <div
               key={item.title}

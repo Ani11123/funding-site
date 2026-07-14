@@ -295,7 +295,7 @@ BUILD
 [x] Live QA in headless Chromium at 1440px (desktop) and 390px (mobile): breadcrumb, hero, all sections, FAQ accordion open/close, Related Solutions links verified, zero console errors
 [x] CURRENT_STATE.md + TASKS.md updated documenting the template
 
-**Waiting on client approval before:** migrating the other 7 service pages (asset-finance, invoice-finance, merchant-cash-advance, secured/unsecured-business-loans, working-capital, revolving-credit-facility) to this template, pushing to GitHub, or deploying.
+**Update (2026-07-14):** Template approved by client. All 7 remaining pages were superseded by a further client instruction — see below.
 
 ## CONTACT FORM VALIDATION — COMPLETE (2026-07-13)
 
@@ -319,15 +319,44 @@ BUILD
 
 **Not done (explicitly out of scope, deferred to Phase 2):** CRM/API integration, server-side validation, spam protection, lead routing, consent logging, automated notifications. See `src/lib/contactFormSubmit.ts` for the itemised TODO list at the integration boundary.
 
+## PHASE 1 BUSINESS FINANCE CONTENT — COMPLETE (2026-07-14)
+
+Latest client instruction overrode prior scope: remove Business Loans and Working Capital entirely, build 6 new pages from supplied content instead.
+
+[x] Deleted `/business-loans` route + `src/data/business-loans.ts` completely (no references remain anywhere)
+[x] Deleted `/working-capital` route completely
+[x] Created `src/data/businessFinanceData.ts` — single shared registry (slug, route, nav title, card description, icon, hero image, SEO metadata) for all 6 active products, consumed by Services.tsx, Footer.tsx, and every page's Related Solutions block
+[x] Adjusted `LoanTypes.tsx` to adapt its grid to 2/3/4 items instead of a fixed 3-column layout
+[x] Built full content + page for **Secured Business Loans** (`/secured-business-loans`) from client-supplied copy
+[x] Built full content + page for **Merchant Cash Advance** (`/merchant-cash-advance`) from client-supplied copy
+[x] Built full content + page for **Invoice Finance** (`/invoice-finance`) from client-supplied copy
+[x] Built full content + page for **Asset Finance** (`/asset-finance`) from client-supplied copy
+[x] Built full content + page for **Revolving Credit Facility** (`/revolving-credit-facility`) from client-supplied copy
+[x] Built full content + page for **Unsecured Business Loans** (`/unsecured-business-loans`) — client's supplied file referenced a different company throughout (Capital Bridge Finance / Keystone Funding, Keystone being this project's own competitor reference site); flagged to the user, who chose to keep only the factual substance and have all copy rewritten fresh in Nexora's voice
+[x] Updated `Services.tsx` — homepage Business Finance grid now reads from the shared registry, 3-column/2-row balanced layout for 6 cards (was a 4-column/2-row layout for 8)
+[x] Updated `Footer.tsx` — Business Finance links now generated from the shared registry (6 links, was a stale hand-maintained list of 6 that didn't match the homepage's 8)
+[x] Removed dead `src/components/ServicePage.tsx` (no longer referenced once all 6 routes moved to the full template)
+[x] Fixed 6 pre-existing `@next/next/no-html-link-for-pages` lint errors (Header.tsx logo link, Hero/WhyChoose/FinalCta internal CTA links) by switching to `next/link`'s `Link` component
+[x] Updated `public/sitemap.xml` — 6 active routes only, dated 2026-07-14
+[x] Verified `public/robots.txt` — still correct, no changes needed
+[x] `npm run build` — clean, zero TypeScript errors, 8 static routes
+[x] `npm run lint` — zero errors, zero warnings
+[x] Responsive QA in headless Chromium across 7 breakpoints (1920/1440/1366/1024/768/430/390px) on homepage + all 6 product pages — no horizontal scroll on any product page, no console errors anywhere
+[x] Link check — all 6 homepage "Explore now" links resolve to their correct completed route; every page's Related Solutions links exclude the current page and never reference a removed page
+[x] Design QA — homepage Business Finance section confirmed as a clean, balanced 2×3 grid; product pages confirmed visually consistent with the approved template (typography, spacing, cards, CTA hierarchy)
+[x] CURRENT_STATE.md, TASKS.md, CLIENT_CHANGE_REQUESTS.md, SEO_PHASE1.md, PHASE1_SIGNOFF.md updated
+
+**Found, not fixed (pre-existing, flagged for manual review):** homepage "Choose the funding route..." section image causes ~76px horizontal overflow at mobile widths (390-430px). Confirmed via diff to predate this session — left alone per explicit "do not redesign the homepage" instruction.
+
 ## PENDING
 
-[ ] Client approval of /business-loans template
-[ ] Migrate remaining 7 service pages to Business Finance Page Template (content only, once approved)
-[ ] Upload out/ to Hostinger public_html
+[ ] Client local review and approval before push/deploy
+[ ] Upload out/ to Hostinger public_html (instructions in HOSTINGER_DEPLOYMENT_STEPS.txt)
 [ ] Configure custom domain in Hostinger
 [ ] Submit sitemap to Google Search Console
 [ ] Client asset handoff — WhatsApp number, LinkedIn URL, Trustpilot URL, office address, OG image, testimonials, policy pages
 [ ] Visual QA on real devices (mobile/tablet) after Hostinger deployment
+[ ] Consider fixing the pre-existing homepage mobile horizontal-scroll issue (see above)
 
 ## PHASE 2 (FUTURE)
 

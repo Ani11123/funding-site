@@ -4,7 +4,7 @@ Implementation log and checklist for Phase 1 on-page SEO.
 
 ---
 
-## Status: ✅ Intact after Round 4 Polish (2026-07-01)
+## Status: ✅ Updated — 6 Business Finance pages live with unique SEO (2026-07-14)
 
 ---
 
@@ -38,7 +38,7 @@ Sitemap: https://nexorafunding.co.uk/sitemap.xml
 ⚠️ TODO: Update Sitemap URL with confirmed production domain.
 
 ### sitemap.xml (`public/sitemap.xml`)
-Includes homepage + 8 service pages. All priority and changefreq values set.
+Includes homepage + 6 active Business Finance pages (updated 2026-07-14). Business Loans and Working Capital routes were removed and are not in the sitemap. All priority and changefreq values set.
 ⚠️ TODO: Update all `<loc>` URLs with confirmed production domain.
 ⚠️ TODO: Submit to Google Search Console and Bing Webmaster Tools after deployment.
 
@@ -64,9 +64,10 @@ Includes homepage + 8 service pages. All priority and changefreq values set.
 | Page | h1 | h2 | h3 |
 |------|----|----|----|
 | Homepage | "The Right Funding. The Right Time." (Hero) | Services, WhyChooseUs, ContactForm, TrustedPartners, Process, Footer cols | Service cards, form heading |
-| Service pages | ServicePage title (e.g. "Business Loans") | Page sub-content | — |
+| Business Finance pages (×6) | Hero heading (e.g. "Larger Facilities. Lower Rates. Strategic Growth.") | One per template section (Intro, Key Features, How It Works, Is This the Right Fit, product-specific cards, Why Choose Nexora, FAQs, Related Finance Solutions, Final CTA) | Card/step/FAQ titles |
 
 h1 appears once per page. h2 used for major sections. h3 for sub-sections. ✅
+Each of the 6 Business Finance pages also carries a BreadcrumbList JSON-LD schema (Home → Business Finance → page).
 
 ---
 
@@ -75,10 +76,10 @@ h1 appears once per page. h2 used for major sections. h3 for sub-sections. ✅
 - [ ] Add OG image (1200×630 JPG) to `public/` and reference in layout.tsx
 - [ ] Update metadataBase + canonical with confirmed production domain
 - [ ] Submit sitemap.xml to Google Search Console
-- [ ] Add per-page metadata to each service page (unique descriptions)
+- [x] ~~Add per-page metadata to each service page (unique descriptions)~~ — done for all 6 active pages (2026-07-14)
 - [ ] Set up Google Analytics / GA4 tracking
-- [ ] Consider structured data (Organization, BreadcrumbList schema)
-- [ ] Build out service page content (currently placeholder) for long-tail keyword targeting
+- [x] ~~Consider structured data (BreadcrumbList schema)~~ — live on all 6 Business Finance pages (2026-07-14)
+- [x] ~~Build out service page content (currently placeholder) for long-tail keyword targeting~~ — done for the 6 active pages; Business Loans and Working Capital removed rather than left as thin placeholder content (client instruction)
 - [ ] Add blog content for topical authority in commercial finance
 - [ ] Monitor Core Web Vitals after deployment
 
@@ -88,5 +89,5 @@ h1 appears once per page. h2 used for major sections. h3 for sub-sections. ✅
 
 - All Unsplash images include `?auto=format` for WebP serving and `q=` parameters for quality control.
 - Hero image uses `priority` prop (preloaded in `<head>`).
-- Service pages each have unique `<title>` tags via metadata export.
-- No `noindex` directives anywhere — all pages are indexable.
+- Each of the 6 Business Finance pages has a unique `<title>`, meta description, canonical URL and OpenGraph tags via its `page.tsx` metadata export. **No Twitter card metadata** on these pages, explicit client instruction this round (Twitter metadata remains only on the homepage via layout.tsx, untouched).
+- No `noindex` directives anywhere — all 6 active pages are indexable. Business Loans and Working Capital pages no longer exist rather than being noindexed placeholders.

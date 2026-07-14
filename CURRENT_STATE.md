@@ -1,7 +1,7 @@
 # CURRENT STATE
 
-Status: Final Typography System Pass — Complete (2026-07-01)
-Build: ✅ Clean (static export, 10 routes)
+Status: Phase 1 Business Finance Content Complete — 6 Pages Live (2026-07-14)
+Build: ✅ Clean (static export, 8 routes: homepage + 6 product pages + not-found), zero lint errors
 Deployment target: Hostinger (static) or Vercel (server)
 
 ---
@@ -91,7 +91,7 @@ themeColor: #0B2E59 (updated from #04244A)
 - Canonical: https://nexorafunding.co.uk (TODO: confirm domain)
 - robots: index=true, follow=true
 - `public/robots.txt`: Allow all, Sitemap pointer
-- `public/sitemap.xml`: homepage + 8 service pages with lastmod 2026-07-01
+- `public/sitemap.xml`: homepage + 6 active Business Finance pages with lastmod 2026-07-14 (Business Loans and Working Capital routes removed, not in sitemap)
 
 ---
 
@@ -135,44 +135,48 @@ Update: add/remove entries in `partners` array in TrustedPartners.tsx
 
 ---
 
-## Service Pages (8 routes)
+## Service Pages (6 active routes — content approved, 2026-07-14)
 
-/business-loans — **full Business Finance Page Template** (2026-07-13), pending client approval. See below.
+All six Business Finance pages are now complete, using client-supplied content, on the approved Business Finance Page Template:
 
-Remaining 7 are placeholder pages using shared `ServicePage` component:
-/asset-finance · /invoice-finance · /merchant-cash-advance
-/secured-business-loans · /unsecured-business-loans · /working-capital · /revolving-credit-facility
+/secured-business-loans · /unsecured-business-loans · /merchant-cash-advance
+/invoice-finance · /asset-finance · /revolving-credit-facility
 
-Each has unique metadata title and description. Once /business-loans is approved, these will be migrated to the new template (content only needs writing — layout is done).
+**Business Loans and Working Capital have been removed completely** per latest client instruction (2026-07-14) — routes deleted, no data file, no nav/footer/homepage/sitemap references remain. If a Business Loans-style generic product is wanted again in future, it would need to be reintroduced as a new entry in `businessFinanceData.ts` with its own content file.
+
+Each page has unique metadata (title, description, canonical, OpenGraph — no Twitter card, per client instruction), a BreadcrumbList JSON-LD schema, and full page-specific content (no shared/generic copy across pages beyond the "Why Choose Nexora" positioning tiles, which are intentionally consistent brand messaging).
 
 ---
 
-## Business Finance Page Template (2026-07-13) — pending client approval
+## Business Finance Page Template + Shared Data Architecture (2026-07-14)
 
-`/business-loans` is the master template for every Business Finance page. Built content-driven so the remaining 7 routes only need a new data file, not new layout code.
+The Business Finance Page Template (approved by client) now powers all 6 live product pages. Architecture:
 
-**Architecture:**
 - `src/components/business-finance/types.ts` — `BusinessFinancePageContent` interface, the content contract every page must satisfy
 - `src/components/business-finance/Template.tsx` — composes TopBar, Header, Breadcrumb, all 10 content sections, Footer
 - `src/components/business-finance/*.tsx` — one component per section (Breadcrumb, Hero, Intro, KeyBenefits, HowItWorks, Eligibility, LoanTypes, WhyChoose, Faq, RelatedSolutions, FinalCta), each accepts only its slice of content as props
-- `src/data/business-loans.ts` — all copy/icons for this page; new pages copy this file's shape with new content
-- `src/app/business-loans/page.tsx` — thin wrapper: metadata (title/description/canonical/OG/Twitter) + BreadcrumbList JSON-LD + `<BusinessFinanceTemplate content={businessLoansContent} />`
+- `src/data/businessFinanceData.ts` — **new shared registry**. Single source of truth for all 6 active products (slug, route, nav title, card description, icon, hero image, SEO title/description). Consumed by:
+  - `Services.tsx` (homepage Business Finance cards — now a clean 3-column, 2-row grid of 6, replacing the old hardcoded 8-item array)
+  - `Footer.tsx` (Business Finance footer links)
+  - every page's `relatedSolutions` (via `getRelatedProducts()` + `toRelatedSolutionItems()` helpers, which exclude the current page and only ever reference active/completed products)
+- `src/data/<slug>.ts` (one per product) — full page content (hero copy, intro, key benefits, how it works, eligibility, product-specific feature cards, FAQs), importing shared card/SEO fields from `businessFinanceData.ts` rather than duplicating them
+- `src/app/<slug>/page.tsx` — thin wrapper per route: metadata + BreadcrumbList JSON-LD + `<BusinessFinanceTemplate content={...} />`
 
-**Section order:** Breadcrumb (Home / Business Finance / page) → Hero → Intro → Key Benefits (4 icon cards) → How It Works (4 steps, same visual pattern as homepage Process) → Eligibility (checklist card) → Loan Types (card grid) → Why Choose Nexora (simplified/compact dark-navy variant of homepage WhyChooseUs, 4 tiles not 6, no pull quote) → FAQ (accordion, brand colours) → Related Solutions (links to the other 4 real service routes) → Final CTA → Footer.
+**To add or remove a product in future:** add/remove its entry in `businessFinanceData.ts` and its content file — the homepage grid, footer links and every other page's related-solutions block update automatically. No other file needs touching.
 
-**Design system:** 100% reused from homepage — same palette, Eyebrow label pattern, `card-lift`, icon box treatment (navy → orange on hover), typography scale (`text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight`). No new colours or type scale introduced.
+**LoanTypes.tsx** (the "product-specific types/features" section) now adapts its grid to 2, 3 or 4 cards depending on how much content a product supplies, rather than a fixed 3-column layout — used for Secured Loans' 3 risk-consideration cards, Invoice/Asset Finance's 3 product-type cards, and Unsecured/Revolving Credit's 4 feature cards.
 
-**Content:** Placeholder copy written in-house (no client content received yet — see Client Change Requests / task history). No fabricated stats, no FCA claims, UK spellings, advisor-led tone per Brand DNA. All CTAs route to `/#contact` (this page has no contact form of its own, links back to homepage contact section).
+**Content sources:**
+- Secured Business Loans, Merchant Cash Advance, Invoice Finance, Asset Finance, Revolving Credit Facility — adapted from client-supplied copy ("content for 5 pages.rtf"), lightly edited for grammar/formatting/UK English while preserving commercial meaning.
+- Unsecured Business Loans — the client-supplied file ("Unsecured Loans.rtf") referred to a different company throughout ("Capital Bridge Finance" / "Keystone Funding" / "Keystone Business Finance" — Keystone is this project's own competitor reference site). Per user decision, only the factual substance (rates from 6.9%, £10k–£2m, 24hr funding, 4-step process, FAQ facts) was kept; all phrasing was rewritten fresh in Nexora's voice. See PHASE1_SIGNOFF.md.
 
-**New dependency:** `lucide-react` added for all section icons (previously only inline SVGs were used sitewide).
+**New dependency:** `lucide-react`, already in use since the Business Finance template was first built.
 
-**QA performed:** `npm run build` clean (10 static routes, zero TS errors). Verified live in headless Chromium at 1440px and 390px — breadcrumb, hero, all 10 sections, FAQ accordion open/close, and Related Solutions links (`/asset-finance`, `/invoice-finance`, `/working-capital`, `/merchant-cash-advance`) all confirmed working, zero console errors.
+**Dead code removed:** `src/components/ServicePage.tsx` (the old generic placeholder component) — no longer referenced by any route now that all 6 pages use the full template.
 
-**Not done yet (waiting for client approval before proceeding):**
-- Not pushed to GitHub, not deployed
-- Other 7 service pages not yet migrated to this template
-- Real photography (hero currently uses an Unsplash placeholder, same convention as rest of site)
-- FCA reference / lender panel specifics intentionally left generic pending compliance confirmation
+**QA performed:** `npm run build` + `npm run lint` clean (zero errors, zero warnings, 8 static routes: homepage + 6 products + not-found). Verified live in headless Chromium across 7 breakpoints (1920/1440/1366/1024/768/430/390px) on the homepage and all 6 product pages — no horizontal scroll, no console errors, all "Explore now" links resolve to the correct completed route, related-solutions links correctly exclude the current page and never reference a removed page.
+
+**Known pre-existing issue (not introduced this session, not fixed — see PHASE1_SIGNOFF.md):** the homepage's "Choose the funding route..." section image causes ~76px of horizontal overflow at mobile widths (390–430px). This predates this session's changes (confirmed via diff — only the cards array/grid were touched) and was left alone per the explicit "do not redesign the homepage" instruction. Recommended for a future fix.
 
 ---
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import type { BusinessFinancePageContent } from "./types";
 
@@ -51,12 +52,12 @@ export default function WhyChoose({ content }: { content: BusinessFinancePageCon
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <a
+          <Link
             href="/#contact"
             className="inline-flex items-center gap-2 bg-[#C76A1B] hover:bg-[#a85918] text-white font-bold text-sm px-7 py-3.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
           >
             Speak to an Advisor
-          </a>
+          </Link>
           <p className="text-slate-400 text-sm">Free consultation. No obligation. No hidden fees.</p>
         </div>
       </div>

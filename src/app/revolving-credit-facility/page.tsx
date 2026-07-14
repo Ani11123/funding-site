@@ -1,12 +1,40 @@
-import ServicePage from "@/components/ServicePage";
+import type { Metadata } from "next";
+import BusinessFinanceTemplate from "@/components/business-finance/Template";
+import { revolvingCreditFacilityContent as content } from "@/data/revolving-credit-facility";
 
-export const metadata = { title: "Revolving Credit Facility | Nexora Funding Limited" };
+const siteUrl = "https://nexorafunding.co.uk";
+const pageUrl = `${siteUrl}/${content.meta.slug}`;
+
+export const metadata: Metadata = {
+  title: content.meta.title,
+  description: content.meta.description,
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    title: content.meta.title,
+    description: content.meta.description,
+    url: pageUrl,
+    type: "website",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Business Finance", item: `${siteUrl}/#business-finance` },
+    { "@type": "ListItem", position: 3, name: content.breadcrumbLabel, item: pageUrl },
+  ],
+};
 
 export default function RevolvingCreditFacilityPage() {
   return (
-    <ServicePage
-      title="Revolving Credit Facility"
-      description="Flexible credit access you can draw on whenever your business needs it."
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BusinessFinanceTemplate content={content} />
+    </>
   );
 }

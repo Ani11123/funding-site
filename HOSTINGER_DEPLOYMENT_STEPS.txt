@@ -1,0 +1,185 @@
+NEXORA FUNDING LIMITED — HOSTINGER DEPLOYMENT STEPS
+=====================================================
+Deployment package: nexora-hostinger-deployment.zip
+Keep this file OUTSIDE the ZIP — it is instructions only, not part of the site.
+
+
+1. UPLOAD THE ZIP
+------------------
+1. Log in to Hostinger hPanel.
+2. Go to Files > File Manager (or connect via FTP/SFTP using the credentials
+   in hPanel > Advanced > FTP Accounts).
+3. Navigate into public_html (this is the web root for your primary domain).
+4. If this is a fresh domain with only Hostinger's default placeholder page,
+   delete the existing contents of public_html first (back up anything you
+   want to keep — see ROLLBACK section below).
+5. Upload nexora-hostinger-deployment.zip into public_html.
+
+
+2. EXTRACT IT CORRECTLY
+------------------------
+1. In File Manager, right-click nexora-hostinger-deployment.zip and choose
+   Extract. Extract it INTO public_html itself, not into a subfolder.
+2. Delete the .zip file from public_html once extracted (keep a local copy
+   on your machine for records — do not leave it live on the server).
+3. You should now see index.html sitting directly inside public_html,
+   alongside a _next folder, an assets folder, and one folder per page
+   (asset-finance, invoice-finance, merchant-cash-advance,
+   revolving-credit-facility, secured-business-loans,
+   unsecured-business-loans), plus robots.txt, sitemap.xml, favicon files,
+   and a hidden .htaccess file.
+
+
+3. VERIFY index.html LOCATION
+------------------------------
+The correct structure is:
+
+  public_html/
+    index.html          <- must be directly here, not in a subfolder
+    .htaccess
+    _next/
+    assets/
+    asset-finance/
+      index.html
+    invoice-finance/
+      index.html
+    merchant-cash-advance/
+      index.html
+    revolving-credit-facility/
+      index.html
+    secured-business-loans/
+      index.html
+    unsecured-business-loans/
+      index.html
+    robots.txt
+    sitemap.xml
+    favicon.ico  (+ other favicon sizes)
+
+If File Manager created an extra wrapper folder (e.g.
+public_html/nexora-hostinger-deployment/index.html), move everything up one
+level into public_html directly, then delete the now-empty wrapper folder.
+
+Each page route exports as a folder containing index.html (not a flat
+route.html file). Apache serves these natively for clean URLs like
+/asset-finance with no extra configuration — this is why the folder
+structure above matters.
+
+
+4. CONNECT THE GODADDY DOMAIN
+------------------------------
+If the domain is registered with GoDaddy but hosting on Hostinger:
+1. In Hostinger hPanel, go to Domains and note the nameservers Hostinger
+   wants you to use (typically ns1.dns-parking.com / ns2.dns-parking.com,
+   or Hostinger's own ns1/ns2.hostinger.com — hPanel will show the exact
+   pair for your account).
+2. Log in to GoDaddy > My Products > DNS (for the domain).
+3. Replace GoDaddy's default nameservers with the ones from Hostinger.
+4. Save. DNS propagation typically takes 15 minutes to a few hours (can be
+   up to 24-48 hours in rare cases).
+5. Back in Hostinger hPanel, add the domain under Domains > Add Website /
+   Manage, if it isn't already attached to this hosting plan.
+
+Alternative (if you'd rather keep DNS at GoDaddy): instead of changing
+nameservers, add an A record at GoDaddy pointing @ to Hostinger's server IP
+(found in hPanel > Hosting > Overview), plus a CNAME for www pointing to
+the domain itself. Ask Hostinger support for the exact IP if unsure.
+
+
+5. ENABLE SSL
+--------------
+1. In hPanel, go to Security > SSL.
+2. Once the domain is correctly pointed at Hostinger (step 4 must have
+   propagated first), issue a free Let's Encrypt SSL certificate for the
+   domain (and www subdomain).
+3. Wait for the certificate to show as Active (usually a few minutes).
+
+
+6. FORCE HTTPS
+---------------
+The supplied .htaccess already includes an HTTPS redirect rule:
+
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+This only works AFTER SSL is active (step 5). If you enable SSL after
+deploying, no further action is needed, the rule is already live. If you
+visit the site over http:// before SSL is issued, this rule would cause an
+error — deploy first, then issue SSL, then it will redirect correctly.
+
+
+7. TEST ALL SIX COMPLETED ROUTES
+----------------------------------
+Once DNS has propagated and SSL is active, check every route resolves with
+a 200 (not a 404 or a raw file-not-found):
+
+  https://yourdomain.co.uk/
+  https://yourdomain.co.uk/secured-business-loans
+  https://yourdomain.co.uk/unsecured-business-loans
+  https://yourdomain.co.uk/merchant-cash-advance
+  https://yourdomain.co.uk/invoice-finance
+  https://yourdomain.co.uk/asset-finance
+  https://yourdomain.co.uk/revolving-credit-facility
+
+Also test:
+  https://yourdomain.co.uk/business-loans        (should now 404 — removed)
+  https://yourdomain.co.uk/working-capital        (should now 404 — removed)
+  https://yourdomain.co.uk/this-page-does-not-exist  (should show custom 404.html)
+
+Click every "Explore now" card on the homepage and confirm it lands on the
+correct page. Click every "Related Finance Solutions" card on each of the
+six pages and confirm the same.
+
+
+8. VERIFY FAVICON, SITEMAP AND ROBOTS.TXT
+--------------------------------------------
+  https://yourdomain.co.uk/favicon.ico     -> should load the Nexora icon
+  https://yourdomain.co.uk/sitemap.xml     -> should list 7 URLs (homepage
+                                               + 6 Business Finance pages)
+  https://yourdomain.co.uk/robots.txt      -> should show "Allow: /" and a
+                                               Sitemap: line
+
+IMPORTANT: sitemap.xml and robots.txt currently reference
+https://nexorafunding.co.uk — if the live domain is different, edit both
+files (in public_html directly, or re-export from source with the correct
+domain) before submitting to Google Search Console.
+
+
+9. HANDLE STATIC-ROUTE 404 ISSUES
+------------------------------------
+If a page route (e.g. /asset-finance) shows a 404 despite being uploaded:
+
+  a. Confirm the folder structure matches section 3 above — the export
+     must produce asset-finance/index.html, not asset-finance.html. If you
+     rebuild from source yourself, this depends on `trailingSlash: true` in
+     next.config.ts. Do not remove that setting.
+  b. Confirm .htaccess made it into public_html (it's a hidden file — in
+     File Manager, enable "Show Hidden Files" to check).
+  c. Confirm Hostinger's Apache has mod_rewrite and mod_dir enabled (both
+     are on by default on Hostinger shared hosting; if a support ticket is
+     ever needed, ask them to confirm these two modules).
+  d. Clear any Hostinger-side cache (hPanel > Speed > Cache Manager, if
+     present on your plan) and your browser cache, then retest.
+
+
+10. ROLLBACK USING BACKUP
+----------------------------
+Before overwriting an existing live site, always take a backup first:
+  a. In hPanel, go to Files > Backups (or Files > File Manager > select
+     public_html > Compress) and download a full copy of the current
+     public_html BEFORE uploading the new deployment.
+  b. Keep that backup .zip somewhere safe outside Hostinger.
+  c. To roll back: delete the current public_html contents and re-extract
+     your saved backup .zip in its place, following the same extraction
+     steps as section 2-3 above.
+  d. Hostinger's own automatic backups (if included on your plan) can also
+     be restored from hPanel > Files > Backups > Restore, without needing
+     your own manual backup, if one was taken recently enough.
+
+
+AFTER DEPLOYMENT
+-----------------
+- Submit sitemap.xml to Google Search Console and Bing Webmaster Tools.
+- Confirm the domain in metadataBase / canonical URLs matches the live
+  domain (currently set to https://nexorafunding.co.uk throughout).
+- Re-run the six-route test above from a phone on mobile data, not just
+  a desktop browser, to catch anything cache- or device-specific.

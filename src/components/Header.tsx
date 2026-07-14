@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
 
 const navLinks = [
@@ -28,9 +29,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-[84px] sm:h-[96px] lg:h-[108px]">
 
           {/* Logo — viewBox "0 121 2534 1353": y=121 (icon top) → y=1474 (FUNDING LIMITED bottom, tagline at y=1476 excluded) */}
-          <a href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
+          <Link href="/" className="flex items-center shrink-0 hover:opacity-85 transition-opacity duration-200">
             <LogoMark mode="light" className="w-[130px] sm:w-[150px] lg:w-[170px] h-auto" />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center">

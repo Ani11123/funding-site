@@ -1,14 +1,8 @@
 import Image from "next/image";
 import LogoMark from "@/components/LogoMark";
+import { businessFinanceProducts } from "@/data/businessFinanceData";
 
-const fundingLinks = [
-  { label: "Business Loans", href: "/business-loans" },
-  { label: "Asset Finance", href: "/asset-finance" },
-  { label: "Invoice Finance", href: "/invoice-finance" },
-  { label: "Merchant Cash Advance", href: "/merchant-cash-advance" },
-  { label: "Secured Business Loans", href: "/secured-business-loans" },
-  { label: "Working Capital", href: "/working-capital" },
-];
+const fundingLinks = businessFinanceProducts.map((p) => ({ label: p.navTitle, href: p.route }));
 
 const companyLinks = [
   { label: "Business Finance", href: "#business-finance" },
