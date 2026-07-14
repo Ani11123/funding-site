@@ -180,6 +180,20 @@ The Business Finance Page Template (approved by client) now powers all 6 live pr
 
 ---
 
+## Social Links Configuration (2026-07-14)
+
+`src/data/socialLinks.ts` is now the single source of truth for LinkedIn, WhatsApp, Facebook and Instagram — consumed by both `TopBar.tsx` and `Footer.tsx` (previously each hardcoded its own duplicate array). To update a social link in future, edit this one file only.
+
+- **LinkedIn** — official URL now live: `https://www.linkedin.com/in/nexora-funding-483b6741a/?skipRedirect=true`
+- **WhatsApp** — still a `#` placeholder pending the client's number
+- **Facebook / Instagram** — unchanged, already live
+
+Link behaviour: any href starting with `http` automatically gets `target="_blank"` + `rel="noopener noreferrer"` (external link security/accessibility best practice); placeholder `#` links stay inert with neither attribute until a real URL is supplied.
+
+QA: verified live in headless Chromium — both TopBar and Footer LinkedIn icons resolve to the official URL with correct `target`/`rel`, confirmed on the homepage and a product page, desktop (1440px) and mobile (390px). All four social icons render correctly, `npm run build` + `npm run lint` clean.
+
+---
+
 ## Contact Form Validation (2026-07-13)
 
 Client-side validation added to the homepage ContactForm — layout and visual design unchanged, only field-level validation, error UI and submit-flow states added.
@@ -219,7 +233,7 @@ Client-side validation added to the homepage ContactForm — layout and visual d
 - Original copywriting only
 - Phone placeholder: 0000 000 0000
 - Email: office@nexorafunding.co.uk (confirmed by client)
-- Social links: Facebook + Instagram live; LinkedIn + WhatsApp placeholder (#) until URLs provided
+- Social links: Facebook, Instagram and **LinkedIn live** (official URL confirmed 2026-07-14: `https://www.linkedin.com/in/nexora-funding-483b6741a/?skipRedirect=true`); WhatsApp still placeholder (#) until a number is provided
 
 ---
 
@@ -231,8 +245,8 @@ Client-side validation added to the homepage ContactForm — layout and visual d
 
 ## Pending Assets (from client)
 
-- WhatsApp number → update wa.me/ URLs in TopBar + Footer
-- LinkedIn URL → update href in TopBar + Footer
+- WhatsApp number → update wa.me/ URL in `src/data/socialLinks.ts` (TopBar + Footer both consume this one file)
+- ~~LinkedIn URL~~ ✅ Done (2026-07-14) — official URL live in `src/data/socialLinks.ts`
 - Trustpilot profile URL → update href in TopBar
 - Newsletter signup URL → update Footer "Subscribe" button
 - OG image (1200×630px) → add to public/ and reference in layout.tsx

@@ -348,6 +348,19 @@ Latest client instruction overrode prior scope: remove Business Loans and Workin
 
 **Found, not fixed (pre-existing, flagged for manual review):** homepage "Choose the funding route..." section image causes ~76px horizontal overflow at mobile widths (390-430px). Confirmed via diff to predate this session — left alone per explicit "do not redesign the homepage" instruction.
 
+## LINKEDIN INTEGRATION — COMPLETE (2026-07-14)
+
+[x] Created `src/data/socialLinks.ts` — single reusable config for LinkedIn, WhatsApp, Facebook, Instagram
+[x] Updated `TopBar.tsx` to consume the shared config instead of hardcoding its own icon array
+[x] Updated `Footer.tsx` to consume the shared config instead of hardcoding its own icon array
+[x] Replaced the LinkedIn placeholder (`#`) with the official URL in both places: `https://www.linkedin.com/in/nexora-funding-483b6741a/?skipRedirect=true`
+[x] Confirmed no other LinkedIn references existed anywhere in the project (no team/about section, no structured data, no separate mobile-nav icons)
+[x] External links (href starting with `http`) get `target="_blank"` + `rel="noopener noreferrer"`; the WhatsApp placeholder correctly stays without these until it has a real URL
+[x] `npm run build` + `npm run lint` — clean, zero errors, zero warnings
+[x] QA in headless Chromium — LinkedIn icon in both TopBar and Footer confirmed pointing to the official URL with correct `target`/`rel`, checked on the homepage and a product page, desktop (1440px) and mobile (390px); all four social icons still render correctly
+[x] No layout or design changes made — icon markup, spacing and styling are unchanged, only the data source and href moved
+[x] CURRENT_STATE.md and TASKS.md updated
+
 ## PENDING
 
 [ ] Client local review and approval before push/deploy
