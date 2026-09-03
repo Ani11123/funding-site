@@ -6,3 +6,7 @@ out/
 .vercel/
 .DS_Store
 *.zip
+tsconfig.tsbuildinfo
+
+# Generated client-handover snapshot (full copy of the repo) — not source, don't version it
+nexora-source-code-handover/
