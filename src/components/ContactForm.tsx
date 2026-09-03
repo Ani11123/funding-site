@@ -225,20 +225,28 @@ export default function ContactForm() {
               <div className="grid grid-cols-2 divide-x divide-white/[0.08]">
                 <div className="px-5 py-3.5">
                   <p className="text-[#C76A1B] text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">Phone</p>
-                  <a
-                    href="tel:+442034323492"
-                    className="text-slate-300 hover:text-[#C76A1B] text-sm font-medium transition-colors duration-150 whitespace-nowrap"
-                  >
-                    020 3432 3492
-                  </a>
+                  <div className="flex flex-col gap-0.5">
+                    <a
+                      href="tel:+447537158677"
+                      className="text-slate-300 hover:text-[#C76A1B] text-sm font-medium transition-colors duration-150 whitespace-nowrap"
+                    >
+                      +44 7537 158677
+                    </a>
+                    <a
+                      href="tel:+447537158678"
+                      className="text-slate-300 hover:text-[#C76A1B] text-sm font-medium transition-colors duration-150 whitespace-nowrap"
+                    >
+                      +44 7537 158678
+                    </a>
+                  </div>
                 </div>
                 <div className="px-5 py-3.5">
                   <p className="text-[#C76A1B] text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">Email</p>
                   <a
-                    href="mailto:office@nexorafunding.co.uk"
+                    href="mailto:work@nexorafunding.co.uk"
                     className="text-slate-300 hover:text-[#C76A1B] text-sm font-medium transition-colors duration-150 break-all"
                   >
-                    office@nexorafunding.co.uk
+                    work@nexorafunding.co.uk
                   </a>
                 </div>
               </div>
