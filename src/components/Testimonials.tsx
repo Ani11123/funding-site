@@ -1,6 +1,8 @@
 // TODO: Replace placeholder testimonials with real client testimonials when provided
 // Each testimonial has: quote, name (or initials), role, company, and location
 
+const TRUSTPILOT_URL = "https://www.trustpilot.com/review/nexorafunding.co.uk";
+
 const testimonials = [
   {
     quote:
@@ -13,12 +15,17 @@ const testimonials = [
   },
   {
     quote:
-      "From my first conversation with an advisor, I knew we were in good hands. They matched us with the right invoice finance facility quickly and the impact on our cashflow was immediate.",
-    initials: "S.P.",
-    role: "Director",
-    company: "Logistics Company",
-    location: "West Yorkshire",
-    avatarBg: "bg-[#0B2E59]",
+      "Fabulous service from Shivang and the Nexora team! Working with Shivang Gor at Nexora Funding has been an absolute game-changer for our business. From day one, Shivang demonstrated exceptional expertise, transparency, and a genuine commitment to securing the best commercial finance solutions tailored to our specific needs. He guided us seamlessly through every step of the funding process, making what usually feels complex and stressful remarkably smooth and straightforward.",
+    name: "St LOGISTICS",
+    initials: "SL",
+    role: "Verified Review",
+    company: "Trustpilot",
+    location: "United Kingdom",
+    avatarBg: "bg-[#3E6B94]",
+    // Full review is long relative to the other cards — only an excerpt is
+    // shown on the card (see previewLength below) so all three cards stay
+    // visually consistent; the "...more" link points to the full Trustpilot review.
+    previewLength: 180,
   },
   {
     quote:
@@ -72,7 +79,21 @@ export default function Testimonials() {
 
               {/* Quote */}
               <p className="text-[#333333]/80 text-sm leading-relaxed flex-1">
-                {t.quote}
+                {t.previewLength ? (
+                  <>
+                    {t.quote.slice(0, t.previewLength).trimEnd()}{" "}
+                    <a
+                      href={TRUSTPILOT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#C76A1B]/80 hover:text-[#C76A1B] hover:underline"
+                    >
+                      ...more
+                    </a>
+                  </>
+                ) : (
+                  t.quote
+                )}
               </p>
 
               {/* Attribution */}
@@ -81,7 +102,7 @@ export default function Testimonials() {
                   <span className="text-white text-xs font-bold">{t.initials}</span>
                 </div>
                 <div>
-                  <p className="text-[#0B2E59] font-semibold text-sm">{t.initials}</p>
+                  <p className="text-[#0B2E59] font-semibold text-sm">{t.name ?? t.initials}</p>
                   <p className="text-slate-400 text-xs">{t.role} · {t.company}</p>
                   <p className="text-slate-400 text-xs">{t.location}</p>
                 </div>

@@ -8,9 +8,10 @@ export default function TopBar() {
         <div className="flex items-center justify-between h-9">
 
           {/* Left — Trustpilot reference */}
-          {/* TODO: Replace # href with client's actual Trustpilot profile URL */}
           <a
-            href="#"
+            href="https://www.trustpilot.com/review/nexorafunding.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             aria-label="See our reviews on Trustpilot"
           >
