@@ -12,9 +12,12 @@ interface LogoMarkProps {
 export default function LogoMark({ mode = "light", className = "" }: LogoMarkProps) {
   const [failed, setFailed] = useState(false);
 
-  // Single clean logo variant — nexora-header-logo.svg used everywhere.
-  // Dark mode applies brightness(0) invert(1) for white rendering on dark backgrounds.
-  const src = "/assets/logo/nexora-header-logo.svg";
+  // Light backgrounds: navy + bronze logo. Dark backgrounds: the designer's
+  // off-white + bronze logo (no CSS filter, so the bronze is preserved).
+  const src =
+    mode === "dark"
+      ? "/assets/logo/nexora-header-logo-white.svg"
+      : "/assets/logo/nexora-header-logo.svg";
 
   if (!failed) {
     return (
@@ -23,7 +26,6 @@ export default function LogoMark({ mode = "light", className = "" }: LogoMarkPro
         src={src}
         alt="Nexora Funding Limited"
         className={className}
-        style={mode === "dark" ? { filter: "brightness(0) invert(1)" } : undefined}
         onError={() => setFailed(true)}
       />
     );

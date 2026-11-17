@@ -137,15 +137,14 @@ export default function Footer() {
         </div>
 
         {/* Copyright bar */}
-        <div className="py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Nexora Funding Limited. All rights reserved.</p>
+        {/* Same column grid as the footer body, so the policy links line up under "Stay Informed" */}
+        <div className="py-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 lg:gap-x-10 gap-y-2 items-center text-xs text-slate-500">
+          <p className="lg:col-span-3">© {new Date().getFullYear()} Nexora Funding Limited. All rights reserved.</p>
 
           {/* Policy links */}
-          <div className="flex flex-wrap items-center gap-4">
-            {/* TODO: Link to real policy pages when created */}
-            <a href="#" className="hover:text-[#C76A1B] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#C76A1B] transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-[#C76A1B] transition-colors">Complaints</a>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a href="/privacy-policy/" className="whitespace-nowrap hover:text-[#C76A1B] transition-colors">Privacy Policy</a>
+            <a href="/terms-and-conditions/" className="whitespace-nowrap hover:text-[#C76A1B] transition-colors">Terms and Conditions</a>
           </div>
         </div>
       </div>

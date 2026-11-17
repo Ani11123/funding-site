@@ -15,12 +15,13 @@ export const metadata: Metadata = {
   icons: {
     // favicon.ico handled by app/favicon.ico (Next.js special file — most reliable)
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      // ?v=2 — cache-bust so returning visitors pick up the new favicon at launch
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png?v=2", sizes: "48x48", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png?v=2", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
   // TODO: Add OG image at public/og-image.jpg (1200×630px) when brand assets are finalised
