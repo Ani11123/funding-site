@@ -33,7 +33,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Secured Business Loans",
     cardDescription: "Larger funding amounts secured against business assets or commercial property.",
     icon: Landmark,
-    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/secured-business-loans.webp",
     heroImageAlt: "Commercial office building representing asset-backed business finance",
     seoTitle: "Secured Business Loans | Nexora Funding Limited",
     seoDescription:
@@ -45,7 +45,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Unsecured Business Loans",
     cardDescription: "No collateral required. Quick access to funds for operational needs and growth.",
     icon: Banknote,
-    heroImage: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/unsecured-business-loans.webp",
     heroImageAlt: "UK business owner reviewing paperwork at a desk",
     seoTitle: "Unsecured Business Loans | Nexora Funding Limited",
     seoDescription:
@@ -57,7 +57,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Merchant Cash Advance",
     cardDescription: "Access fast funding based on your card turnover with flexible repayments.",
     icon: CreditCard,
-    heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/merchant-cash-advance.webp",
     heroImageAlt: "Card payment terminal in a UK retail business",
     seoTitle: "Merchant Cash Advance | Nexora Funding Limited",
     seoDescription:
@@ -69,7 +69,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Invoice Finance",
     cardDescription: "Release cash tied up in outstanding invoices to maintain steady cashflow.",
     icon: FileText,
-    heroImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/invoice-finance.webp",
     heroImageAlt: "Business owner reviewing invoices and financial paperwork",
     seoTitle: "Invoice Finance | Nexora Funding Limited",
     seoDescription:
@@ -81,7 +81,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Asset Finance",
     cardDescription: "Finance equipment, vehicles and machinery without straining working capital.",
     icon: Boxes,
-    heroImage: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/asset-finance.webp",
     heroImageAlt: "Warehouse machinery and equipment financed through asset finance",
     seoTitle: "Asset Finance | Nexora Funding Limited",
     seoDescription:
@@ -93,7 +93,7 @@ export const businessFinanceProducts: BusinessFinanceProduct[] = [
     navTitle: "Revolving Credit Facility",
     cardDescription: "Flexible credit access you can draw on whenever your business needs it.",
     icon: RefreshCw,
-    heroImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1920&q=85",
+    heroImage: "/assets/images/hero/revolving-credit-facility.webp",
     heroImageAlt: "Business team discussing flexible working capital planning",
     seoTitle: "Revolving Credit Facility | Nexora Funding Limited",
     seoDescription:

@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-[-4%] animate-hero-zoom">
           <Image
-            src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1920&q=85"
+            src="/assets/images/hero/home-hero.webp"
             alt=""
             fill
             className="object-cover"
