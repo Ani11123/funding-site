@@ -14,10 +14,11 @@ export default function LogoMark({ mode = "light", className = "" }: LogoMarkPro
 
   // Light backgrounds: navy + bronze logo. Dark backgrounds: the designer's
   // off-white + bronze logo (no CSS filter, so the bronze is preserved).
+  // ?v=2 — .htaccess caches SVGs for a year; bump when the artwork changes.
   const src =
     mode === "dark"
-      ? "/assets/logo/nexora-header-logo-white.svg"
-      : "/assets/logo/nexora-header-logo.svg";
+      ? "/assets/logo/nexora-header-logo-white.svg?v=2"
+      : "/assets/logo/nexora-header-logo.svg?v=2";
 
   if (!failed) {
     return (
